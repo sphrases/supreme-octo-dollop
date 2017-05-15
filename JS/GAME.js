@@ -36,7 +36,7 @@ function preload() {
 
 
     //load sounds
-    game.load.audio('bulletGunSound', '../RES/audio/pew.mp3');
+    game.load.audio('bulletGunSound', '../RES/audio/pew.wav');
 
 }
 
@@ -123,7 +123,7 @@ function update() {
     }
 
     else if (cursors.right.isDown) {
-        //playerChar.animations.play('right');
+        playerChar.animations.play('right');
         rightWasDown = 1;
         moveWorld(this);
     }
@@ -134,7 +134,7 @@ function update() {
 
     else {
         //  Stand still
-        //playerChar.animations.stop();
+        playerChar.animations.stop();
         playerChar.frame = 4;
     }
 
@@ -153,7 +153,7 @@ function update() {
     }
 
     //Fire!
-    if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+    if (game.input.keyboard.isDown(Phaser.Keyboard.X)) {
 
         fireBullet();
     }
@@ -166,7 +166,7 @@ function jump(game) {
 }
 
 function checkJump() {
-    if (jumps < 2) {
+    if (jumps <= 1) {
         console.log("Jumped!");
         return true;
 
@@ -201,7 +201,7 @@ function fireBullet() {
             bullet.lifespan = 2000;
             bullet.rotation = playerChar.rotation;
             game.physics.arcade.velocityFromRotation(playerChar.rotation, 400, bullet.body.velocity);
-            bulletTime = game.time.now + 120;
+            bulletTime = game.time.now + 400;
             playBulletGunSound.play();
         }
     }
