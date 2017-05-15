@@ -17,22 +17,22 @@ var game = new Phaser.Game(windowWidth, windowHeight, Phaser.AUTO, 'myPhaserID',
 function preload() {
 
     //loading the backgrounds
-    game.load.image("bgLvl0", "../_RES/bg/layer0.png");
-    game.load.image("bgLvl1", "../_RES/bg/layer1.png");
-    game.load.image("bgLvl2", "../_RES/bg/layer2.png");
-    game.load.image("bgLvl3", "../_RES/bg/plx-4.png");
-    game.load.image("bgLvl4", "../_RES/bg/plx-5.png");
+    game.load.image("bgLvl0", "../RES/bg/layer0.png");
+    game.load.image("bgLvl1", "../RES/bg/layer1.png");
+    game.load.image("bgLvl2", "../RES/bg/layer2.png");
+    game.load.image("bgLvl3", "../RES/bg/plx-4.png");
+    game.load.image("bgLvl4", "../RES/bg/plx-5.png");
 
     //loading the players spritesheet
-    game.load.spritesheet('dude', '../_RES/dude.png', 32, 48);
+    game.load.spritesheet('dude', '../RES/dude.png', 32, 48);
 
-    game.load.image('ground', '../_RES/ground/ground.png');
+    game.load.image('ground', '../RES/ground/ground.png');
 
-    game.load.image('bulletGun', '../_RES/sprites/bullet2.png');
+    game.load.image('bulletGun', '../RES/sprites/bullet2.png');
 
 
     //load sounds
-    game.load.audio('bulletGunSound', '../_RES/audio/pew.mp3');
+    game.load.audio('bulletGunSound', '../RES/audio/pew.mp3');
 
 }
 
