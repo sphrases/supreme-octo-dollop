@@ -201,7 +201,7 @@ function jump(game) {
 }
 
 function checkJump() {
-    if (jumps <= 1) {
+    if (jumps <= 2) {
         console.log("Jumped!");
         return true;
 
@@ -259,7 +259,7 @@ var enemy_height = Math.random()* 600 + 100;
 
 function spawnEnemy() {
 
-        enemy_height = Math.random()* 600 + 100;
+        enemy_height = Math.random()* 500 + 100;
 
         var enemy = enemies.create(game.world.width, enemy_height, 'invader');
         enemy.anchor.setTo(0.5, 0.5);
