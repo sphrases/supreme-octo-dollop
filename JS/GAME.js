@@ -1,6 +1,8 @@
 var windowHeight = 700;
 var windowWidth = 1000;
 var jumps = 0;
+var jumpwaspressed = false;
+var jumppressed = false;
 var bulletGun;
 var bulletTime = 0;
 var game;
@@ -135,7 +137,9 @@ function update() {
     }
 
     //  Allow the player to jump if they are touching the ground.
-    if (cursors.up.isDown && (playerChar.body.touching.down || checkJump())) {
+	jumpwaspressed = jumppressed;
+	jumppressed = cursors.up.isDown;
+    if (jumppressed && !jumpwaspressed && (playerChar.body.touching.down || checkJump())) {
         jump(this);
         jumps++;
     }
