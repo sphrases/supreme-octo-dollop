@@ -5,27 +5,11 @@
 }
 
 body {
-    background-color: #FaFaFa;
+    background-color: #ff7141;
 }
 
 canvas {
     margin: 0px auto;
-
-
-}
-
-.gameHeading {
-    text-decoration: none;
-    display: block;
-    padding: 10px;
-
-    font-family: Century Gothic;
-    text-align: center;
-    font-size: 50px;
-    font-weight: 900;
-    color: white;
-    /*color: #F44336;*/
-    margin: 0px auto;
-
+    margin-top: 3%;
 
 }
