@@ -10,6 +10,8 @@ var game;
 var sprite;
 var cursors;
 
+var rightWasDown = 0;
+
 var game = new Phaser.Game(windowWidth, windowHeight, Phaser.AUTO, 'myPhaserID', {
     preload: preload,
     create: create,
@@ -76,9 +78,6 @@ function create() {
     ground.alpha = 0
 
 
-
-
-
     //Init bullets
     bullets = game.add.group();
     bullets.enableBody = true;
@@ -90,9 +89,6 @@ function create() {
 
     //Init sounds
     playBulletGunSound = game.add.audio('bulletGunSound');
-
-
-
 
 
     //Init character
@@ -125,20 +121,28 @@ function update() {
     if (cursors.left.isDown) {
         //kek
     }
+
     else if (cursors.right.isDown) {
         //playerChar.animations.play('right');
+        rightWasDown = 1;
         moveWorld(this);
     }
+    if (rightWasDown == 1 && cursors.right.isUp) {
+        brakeWorld(this);
+        rightWasDown = 0;
+    }
+
     else {
         //  Stand still
         //playerChar.animations.stop();
-
         playerChar.frame = 4;
     }
 
     //  Allow the player to jump if they are touching the ground.
-	jumpwaspressed = jumppressed;
-	jumppressed = cursors.up.isDown;
+    jumpwaspressed = jumppressed;
+    jumppressed = cursors.up.isDown;    //cursor.up.isDown is a bool variable!
+
+
     if (jumppressed && !jumpwaspressed && (playerChar.body.touching.down || checkJump())) {
         jump(this);
         jumps++;
@@ -149,9 +153,8 @@ function update() {
     }
 
     //Fire!
-    if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
-    {
-        playBulletGunSound.play();
+    if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+
         fireBullet();
     }
 
@@ -160,13 +163,11 @@ function update() {
 
 function jump(game) {
     playerChar.body.velocity.y = -350;
-
-
 }
 
 function checkJump() {
-    if (jumps < 10) {
-
+    if (jumps < 2) {
+        console.log("Jumped!");
         return true;
 
     } else {
@@ -184,19 +185,24 @@ function moveWorld(game) {
 
 }
 
-function fireBullet () {
+function brakeWorld(game) {
+    console.log("braked");
 
-    if (game.time.now > bulletTime)
-    {
+
+}
+
+function fireBullet() {
+
+    if (game.time.now > bulletTime) {
         bullet = bullets.getFirstExists(false);
 
-        if (bullet)
-        {
+        if (bullet) {
             bullet.reset(playerChar.body.x + 16, playerChar.body.y + 16);
             bullet.lifespan = 2000;
             bullet.rotation = playerChar.rotation;
             game.physics.arcade.velocityFromRotation(playerChar.rotation, 400, bullet.body.velocity);
-            bulletTime = game.time.now + 50;
+            bulletTime = game.time.now + 120;
+            playBulletGunSound.play();
         }
     }
 
