@@ -5,18 +5,20 @@ var jumpwaspressed = false;
 var jumppressed = false;
 var bulletGun;
 var bulletTime = 0;
-var game;
-
-var sprite;
 var cursors;
-
 var rightWasDown = 0;
+var enemies;
+var playerChar;
+var body;
+
+
 
 var game = new Phaser.Game(windowWidth, windowHeight, Phaser.AUTO, 'myPhaserID', {
     preload: preload,
     create: create,
     update: update
 });
+
 
 function preload() {
 
@@ -37,6 +39,10 @@ function preload() {
 
     //load sounds
     game.load.audio('bulletGunSound', '../RES/audio/pew.wav');
+
+    //load enemies
+    game.load.image('enemyBullet', '../RES/sprites/bullet2.png');
+    game.load.spritesheet('invader', '../RES/sprites/ship2.png', 32, 32);
 
 }
 
@@ -78,6 +84,22 @@ function create() {
     ground.alpha = 0
 
 
+    // The enemy's bullets
+    enemyBullets = game.add.group();
+    enemyBullets.enableBody = true;
+    enemyBullets.physicsBodyType = Phaser.Physics.ARCADE;
+    enemyBullets.createMultiple(30, 'enemyBullet');
+    enemyBullets.setAll('anchor.x', 0.5);
+    enemyBullets.setAll('anchor.y', 1);
+    enemyBullets.setAll('outOfBoundsKill', true);
+    enemyBullets.setAll('checkWorldBounds', true);
+
+    //  The baddies!
+    enemies = game.add.group();
+    enemies.enableBody = true;
+    enemies.physicsBodyType = Phaser.Physics.ARCADE;
+
+
     //Init bullets
     bullets = game.add.group();
     bullets.enableBody = true;
@@ -108,13 +130,24 @@ function create() {
     cursors = game.input.keyboard.createCursorKeys();
 }
 
+var time_til_spawn = Math.random()*3000 + 2000;  //Random time between 2 and 5 seconds.
+var last_spawn_time = game.time;
+
 function update() {
     game.physics.arcade.collide(playerChar, platforms);
 
 
     //Handle playerChar movement!
     //cancel velocity
-    playerChar.body.velocity.x = 0;
+
+
+    var current_time = game.time.time;
+    if(current_time - last_spawn_time > time_til_spawn){
+        time_til_spawn = Math.random()*3000 + 2000;
+        last_spawn_time = current_time;
+        spawnEnemy();
+    }
+
 
 
     //Movement
@@ -153,10 +186,12 @@ function update() {
     }
 
     //Fire!
-    if (game.input.keyboard.isDown(Phaser.Keyboard.X)) {
+    if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
 
         fireBullet();
     }
+
+    game.physics.arcade.overlap(bullets, enemies, collisionHandler, null, this);
 
 }
 
@@ -182,12 +217,22 @@ function moveWorld(game) {
     game.wall2.tilePosition.x -= 0.5;
     game.wall3.tilePosition.x -= 1;
     game.wall4.tilePosition.x -= 2;
+    enemies.forEachAlive(function(enemy) {enemy.position.x -= 2});
 
 }
 
 function brakeWorld(game) {
     console.log("braked");
+    var decounter = 0.1;
 
+
+        console.log(game.wall1.tilePosition.x);
+        game.wall1.tilePosition.x -= 0.25-decounter;
+        game.wall2.tilePosition.x -= 0.5-decounter;
+        game.wall3.tilePosition.x -= 1-decounter;
+        game.wall4.tilePosition.x -= 2-decounter;
+
+        decounter += 0.1;
 
 }
 
@@ -208,9 +253,41 @@ function fireBullet() {
 
 }
 
+function spawnEnemies(i) {
+    for (var x = 0; x < i; x++)
+    {
+        var enemy = enemies.create(100,100, 'invader');
+        enemy.anchor.setTo(0.5, 0.5);
+        enemy.rotation = 90;
+        //enemy.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
+        //enemy.play('fly');
+        enemy.body.moves = false;
+    }
+}
+
+function spawnEnemy() {
+
+        var enemy = enemies.create(600, game.world.height - 100, 'invader');
+        enemy.anchor.setTo(0.5, 0.5);
+        enemy.rotation = 90;
+        //enemy.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
+        //enemy.play('fly');
+        enemy.body.moves = false;
+        console.log("enemy spawned!");
+        enemies.add(enemy);
+
+
+}
 
 
 
+function collisionHandler (bullet, enemy) {
+
+    //  When a bullet hits an alien we kill them both
+    bullet.kill();
+    enemy.kill();
 
 
+
+}
 
