@@ -19,7 +19,21 @@ canvas {
 
     text-align: center;
     margin: auto;
-    margin-top: 25%;
+    margin-top: 0;
+}
+
+#heading {
+    font-size: 200px;
+
+    font-family: 'Amatic SC', cursive;
+    color: #ffffff;
+    display: block;
+
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    margin-top: 15%;
+    margin-bottom: 0;
 }
 
 
