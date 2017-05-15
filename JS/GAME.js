@@ -114,7 +114,7 @@ function create() {
 
 
     //Init character
-    playerChar = game.add.sprite(300, game.world.height - 150, 'dude');
+    playerChar = game.add.sprite(150, game.world.height - 150, 'dude');
 
 
     game.physics.arcade.enable(playerChar);
@@ -253,21 +253,15 @@ function fireBullet() {
 
 }
 
-function spawnEnemies(i) {
-    for (var x = 0; x < i; x++)
-    {
-        var enemy = enemies.create(100,100, 'invader');
-        enemy.anchor.setTo(0.5, 0.5);
-        enemy.rotation = 90;
-        //enemy.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-        //enemy.play('fly');
-        enemy.body.moves = false;
-    }
-}
+
+
+var enemy_height = Math.random()* 600 + 100;
 
 function spawnEnemy() {
 
-        var enemy = enemies.create(600, game.world.height - 100, 'invader');
+        enemy_height = Math.random()* 600 + 100;
+
+        var enemy = enemies.create(game.world.width, enemy_height, 'invader');
         enemy.anchor.setTo(0.5, 0.5);
         enemy.rotation = 90;
         //enemy.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
