@@ -1,6 +1,12 @@
 var windowHeight = 700;
 var windowWidth = 1000;
 var jumps = 0;
+var bulletGun;
+var bulletTime = 0;
+var game;
+
+var sprite;
+var cursors;
 
 var game = new Phaser.Game(windowWidth, windowHeight, Phaser.AUTO, 'myPhaserID', {
     preload: preload,
@@ -22,6 +28,11 @@ function preload() {
 
     game.load.image('ground', '../_RES/ground/ground.png');
 
+    game.load.image('bulletGun', '../_RES/sprites/bullet2.png');
+
+
+    //load sounds
+    game.load.audio('bulletGunSound', '../_RES/audio/pew.mp3');
 
 }
 
@@ -62,6 +73,26 @@ function create() {
     ground.body.immovable = true;
     ground.alpha = 0
 
+
+
+
+
+    //Init bullets
+    bullets = game.add.group();
+    bullets.enableBody = true;
+    bullets.physicsBodyType = Phaser.Physics.ARCADE;
+
+    bullets.createMultiple(100, 'bulletGun');
+    bullets.setAll('anchor.x', 0.2);
+    bullets.setAll('anchor.y', 0.1);
+
+    //Init sounds
+    playBulletGunSound = game.add.audio('bulletGunSound');
+
+
+
+
+
     //Init character
     playerChar = game.add.sprite(300, game.world.height - 150, 'dude');
 
@@ -75,7 +106,6 @@ function create() {
     playerChar.animations.add('left', [0, 1, 2, 3], 10, true);
     playerChar.animations.add('right', [5, 6, 7, 8], 10, true);
 
-
     //read keyboard input
     cursors = game.input.keyboard.createCursorKeys();
 }
@@ -88,6 +118,8 @@ function update() {
     //cancel velocity
     playerChar.body.velocity.x = 0;
 
+
+    //Movement
     if (cursors.left.isDown) {
         //kek
     }
@@ -102,7 +134,6 @@ function update() {
         playerChar.frame = 4;
     }
 
-
     //  Allow the player to jump if they are touching the ground.
     if (cursors.up.isDown && (playerChar.body.touching.down || checkJump())) {
         jump(this);
@@ -113,22 +144,29 @@ function update() {
         jumps = 0;
     }
 
+    //Fire!
+    if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
+    {
+        playBulletGunSound.play();
+        fireBullet();
+    }
+
 }
 
 
 function jump(game) {
     playerChar.body.velocity.y = -350;
 
-    console.log("jumping");
+
 }
 
 function checkJump() {
     if (jumps < 10) {
-        console.log("true");
+
         return true;
 
     } else {
-        console.log("false");
+
         return false;
     }
 }
@@ -139,6 +177,24 @@ function moveWorld(game) {
     game.wall2.tilePosition.x -= 0.5;
     game.wall3.tilePosition.x -= 1;
     game.wall4.tilePosition.x -= 2;
+
+}
+
+function fireBullet () {
+
+    if (game.time.now > bulletTime)
+    {
+        bullet = bullets.getFirstExists(false);
+
+        if (bullet)
+        {
+            bullet.reset(playerChar.body.x + 16, playerChar.body.y + 16);
+            bullet.lifespan = 2000;
+            bullet.rotation = playerChar.rotation;
+            game.physics.arcade.velocityFromRotation(playerChar.rotation, 400, bullet.body.velocity);
+            bulletTime = game.time.now + 50;
+        }
+    }
 
 }
 
