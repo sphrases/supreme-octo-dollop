@@ -1,5 +1,6 @@
 var windowHeight = 700;
 var windowWidth = 1000;
+var jumps = 0;
 
 var game = new Phaser.Game(windowWidth, windowHeight, Phaser.AUTO, 'myPhaserID', {
     preload: preload,
@@ -18,6 +19,8 @@ function preload() {
 
     //loading the players spritesheet
     game.load.spritesheet('dude', '../_RES/dude.png', 32, 48);
+
+    game.load.image('ground', '../_RES/ground/ground.png');
 
 
 }
@@ -47,6 +50,18 @@ function create() {
     this.wallGroup.add(this.wall4);
     //--------------------------------------------------------------
 
+
+    //Init ground layer
+    platforms = game.add.group();
+    platforms.enableBody = true;
+
+    var ground = platforms.create(0, game.world.height - 82, 'ground');
+
+    ground.scale.setTo(3, 2);
+
+    ground.body.immovable = true;
+    ground.alpha = 0
+
     //Init character
     playerChar = game.add.sprite(300, game.world.height - 150, 'dude');
 
@@ -66,33 +81,70 @@ function create() {
 }
 
 function update() {
-    this.wall1.tilePosition.x -= 0.25;
-    this.wall2.tilePosition.x -= 0.5;
-    this.wall3.tilePosition.x -= 1;
-    this.wall4.tilePosition.x -= 2;
+    game.physics.arcade.collide(playerChar, platforms);
+
 
     //Handle playerChar movement!
     //cancel velocity
     playerChar.body.velocity.x = 0;
 
-
-
-
-
-
-    //  Allow the player to jump if they are touching the ground.
-    if (cursors.up.isDown)
-    {
-        playerChar.body.velocity.y = -350;
-    } else {
+    if (cursors.left.isDown) {
+        //kek
+    }
+    else if (cursors.right.isDown) {
+        playerChar.animations.play('right');
+        moveWorld(this);
+    }
+    else {
+        //  Stand still
         playerChar.animations.stop();
 
         playerChar.frame = 4;
     }
 
 
+    //  Allow the player to jump if they are touching the ground.
+    if (cursors.up.isDown && (playerChar.body.touching.down || checkJump())) {
+        jump(this);
+        jumps++;
+    }
+
+    if (playerChar.body.touching.down) {
+        jumps = 0;
+    }
 
 }
+
+
+function jump(game) {
+    playerChar.body.velocity.y = -350;
+
+    console.log("jumping");
+}
+
+function checkJump() {
+    if (jumps < 10) {
+        console.log("true");
+        return true;
+
+    } else {
+        console.log("false");
+        return false;
+    }
+}
+
+
+function moveWorld(game) {
+    game.wall1.tilePosition.x -= 0.25;
+    game.wall2.tilePosition.x -= 0.5;
+    game.wall3.tilePosition.x -= 1;
+    game.wall4.tilePosition.x -= 2;
+
+}
+
+
+
+
 
 
 
