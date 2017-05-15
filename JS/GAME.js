@@ -124,12 +124,12 @@ function update() {
         //kek
     }
     else if (cursors.right.isDown) {
-        playerChar.animations.play('right');
+        //playerChar.animations.play('right');
         moveWorld(this);
     }
     else {
         //  Stand still
-        playerChar.animations.stop();
+        //playerChar.animations.stop();
 
         playerChar.frame = 4;
     }

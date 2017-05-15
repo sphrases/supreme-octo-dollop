@@ -1,0 +1,42 @@
+* {
+    margin: 0px;
+    padding: 0px;
+
+}
+
+body {
+    background-color: #ff7141;
+}
+
+canvas {
+    margin: 0px auto;
+    margin-top: 3%;
+
+}
+
+#buttonDiv {
+    display: block;
+
+    text-align: center;
+    margin: auto;
+    margin-top: 25%;
+}
+
+
+.myButton {
+    background-color: #42c4c7;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:17px;
+    padding:16px 31px;
+    text-decoration:none;
+}
+.myButton:hover {
+    background-color: #43a3c7;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+}
