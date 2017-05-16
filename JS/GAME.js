@@ -53,6 +53,7 @@ function preload() {
     game.load.image('ground', '../RES/ground/ground.png');
 
     game.load.image('bullet', '../RES/sprites/bullet2.png');
+    game.load.image('beam', '../RES/sprites/beam.png');
 
 
     //load sounds
@@ -125,7 +126,7 @@ function create() {
     pistol.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
     pistol.bulletAngleOffset = 0;
     pistol.fireAngle = 0;
-    pistol.trackSprite(playerChar, 0, 0);
+    pistol.trackSprite(playerChar, 55, 40);
     //mg
     machineGun = game.add.weapon(1000, 'bullet');
     machineGun.bulletSpeed = 500;
@@ -134,7 +135,18 @@ function create() {
     machineGun.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
     machineGun.bulletAngleOffset = 0;
     machineGun.fireAngle = 0;
-    machineGun.trackSprite(playerChar, 0, 0);
+    machineGun.trackSprite(playerChar, 55, 40);
+    //beam
+    beam = game.add.weapon(3, 'beam');
+    beam.bulletSpeed = 1000;
+    beam.fireRate = 300;
+    beam.bulletAngleVariance = 0;
+    beam.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+    beam.bulletAngleOffset = 0;
+    beam.fireAngle = 0;
+    beam.trackSprite(playerChar, 55, 40);
+
+
     //laser
     // laser = game.add.weapon(1, 'laser');
     // laser.bulletSpeed
@@ -142,6 +154,7 @@ function create() {
 
     weapons.push(pistol);
     weapons.push(machineGun);
+    weapons.push(beam);
 
 
     firstWeapon = 0;
@@ -244,8 +257,9 @@ function update() {
         changeWeapon(false);
     }
 
-    game.physics.arcade.overlap(pistol, enemies, collisionHandler, null, this);
-    game.physics.arcade.overlap(machineGun, enemies, collisionHandler, null, this);
+    game.physics.arcade.overlap(pistol.bullets, enemies, collisionHandler, null, this);
+    game.physics.arcade.overlap(machineGun.bullets, enemies, collisionHandler, null, this);
+    game.physics.arcade.overlap(beam.bullets, enemies, collisionHandler, null, this);
 
 
 
