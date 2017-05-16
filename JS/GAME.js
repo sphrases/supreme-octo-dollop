@@ -58,6 +58,7 @@ function preload() {
 
     //load sounds
     game.load.audio('bulletGunSound', '../RES/audio/pew.wav');
+    game.load.audio('enemyHit', '../RES/audio/YeahBoi/boi.mp3');
 
     //load enemies
     game.load.image('enemyBullet', '../RES/sprites/bullet2.png');
@@ -116,7 +117,7 @@ function create() {
 
     //WEAPONS!
     playBulletGunSound = game.add.audio('bulletGunSound');
-
+    enemyHit = game.add.audio('enemyHit');
 
     //pistol
     pistol = game.add.weapon(30, 'bullet');
@@ -130,7 +131,7 @@ function create() {
     //mg
     machineGun = game.add.weapon(1000, 'bullet');
     machineGun.bulletSpeed = 500;
-    machineGun.fireRate = 60;
+    machineGun.fireRate = 90;
     machineGun.bulletAngleVariance = 10;
     machineGun.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
     machineGun.bulletAngleOffset = 0;
@@ -236,7 +237,7 @@ function update() {
 
     //Fire!
     if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-
+        playBulletGunSound.play();
         currentWeapon.fire();
     }
 
@@ -348,6 +349,8 @@ function spawnEnemy() {
 function collisionHandler(bullet, enemy) {
 
     //  When a bullet hits an alien we kill them both
+
+    enemyHit.play();
     bullet.kill();
     enemy.kill();
 
