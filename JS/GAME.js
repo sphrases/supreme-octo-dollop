@@ -4,6 +4,8 @@ var jumps = 0;
 var jumpwaspressed = false;
 var jumppressed = false;
 var bulletGun;
+var bulletLaser;
+
 var bulletTime = 0;
 var cursors;
 var rightWasDown = 0;
@@ -11,16 +13,32 @@ var enemies;
 var playerChar;
 var body;
 
+var machineGun;
+var pistol;
+var currentWeapon;
+var firstWeapon;
+var lastWeapon;
+var currentWeaponID;
 
+var weapons = [];
+
+
+var wasSelectedUpState;
+var SelectedUpState;
+var wasSelectedUpState1;
+var SelectedUpState1;
+var wasSelectedUpState2;
+var SelectedUpState2;
 
 var game = new Phaser.Game(windowWidth, windowHeight, Phaser.AUTO, 'myPhaserID', {
     preload: preload,
     create: create,
     update: update
-});
+}, true, false);
 
 
 function preload() {
+
 
     //loading the backgrounds
     game.load.image("bgLvl0", "../RES/bg/layer0.png");
@@ -34,7 +52,7 @@ function preload() {
 
     game.load.image('ground', '../RES/ground/ground.png');
 
-    game.load.image('bulletGun', '../RES/sprites/bullet2.png');
+    game.load.image('bullet', '../RES/sprites/bullet2.png');
 
 
     //load sounds
@@ -84,15 +102,50 @@ function create() {
     ground.alpha = 0
 
 
-    // The enemy's bullets
-    enemyBullets = game.add.group();
-    enemyBullets.enableBody = true;
-    enemyBullets.physicsBodyType = Phaser.Physics.ARCADE;
-    enemyBullets.createMultiple(30, 'enemyBullet');
-    enemyBullets.setAll('anchor.x', 0.5);
-    enemyBullets.setAll('anchor.y', 1);
-    enemyBullets.setAll('outOfBoundsKill', true);
-    enemyBullets.setAll('checkWorldBounds', true);
+    //Init character
+    playerChar = game.add.sprite(150, game.world.height - 200, 'dude');
+    game.physics.arcade.enable(playerChar);
+    playerChar.body.bounce.y = 0.2;
+    playerChar.body.gravity.y = 300;
+    playerChar.body.collideWorldBounds = true;
+    playerChar.scale.setTo(2, 2);
+    //  Our two animations, walking left and right.
+    playerChar.animations.add('left', [0, 1, 2, 3], 10, true);
+    playerChar.animations.add('right', [5, 6,], 10, true);
+
+    //WEAPONS!
+    playBulletGunSound = game.add.audio('bulletGunSound');
+
+
+    //pistol
+    pistol = game.add.weapon(30, 'bullet');
+    pistol.bulletSpeed = 300;
+    pistol.fireRate = 600;
+    pistol.bulletAngleVariance = 0;
+    pistol.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+    pistol.bulletAngleOffset = 0;
+    pistol.fireAngle = 0;
+    pistol.trackSprite(playerChar, 0, 0);
+    //mg
+    machineGun = game.add.weapon(1000, 'bullet');
+    machineGun.bulletSpeed = 500;
+    machineGun.fireRate = 60;
+    machineGun.bulletAngleVariance = 10;
+    machineGun.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+    machineGun.bulletAngleOffset = 0;
+    machineGun.fireAngle = 0;
+    machineGun.trackSprite(playerChar, 0, 0);
+    //laser
+    // laser = game.add.weapon(1, 'laser');
+    // laser.bulletSpeed
+
+
+    weapons.push(pistol);
+    weapons.push(machineGun);
+
+
+    firstWeapon = 0;
+    lastWeapon = weapons.length - 1;
 
     //  The baddies!
     enemies = game.add.group();
@@ -100,54 +153,38 @@ function create() {
     enemies.physicsBodyType = Phaser.Physics.ARCADE;
 
 
-    //Init bullets
-    bullets = game.add.group();
-    bullets.enableBody = true;
-    bullets.physicsBodyType = Phaser.Physics.ARCADE;
-
-    bullets.createMultiple(100, 'bulletGun');
-    bullets.setAll('anchor.x', 0.2);
-    bullets.setAll('anchor.y', 0.1);
-
-    //Init sounds
-    playBulletGunSound = game.add.audio('bulletGunSound');
-
-
-    //Init character
-    playerChar = game.add.sprite(150, game.world.height - 150, 'dude');
-
-
-    game.physics.arcade.enable(playerChar);
-    playerChar.body.bounce.y = 0.2;
-    playerChar.body.gravity.y = 300;
-    playerChar.body.collideWorldBounds = true;
-
-    //  Our two animations, walking left and right.
-    playerChar.animations.add('left', [0, 1, 2, 3], 10, true);
-    playerChar.animations.add('right', [5, 6, 7, 8], 10, true);
-
     //read keyboard input
     cursors = game.input.keyboard.createCursorKeys();
+    this.selectUP = game.input.keyboard.addKey(Phaser.Keyboard.W);
+    this.selectDOWN = game.input.keyboard.addKey(Phaser.Keyboard.Q);
+
+
+    currentWeaponID = 0;
+    currentWeapon = weapons[currentWeaponID];
 }
 
-var time_til_spawn = Math.random()*3000 + 2000;  //Random time between 2 and 5 seconds.
+var time_til_spawn = Math.random() * 3000 + 2000;  //Random time between 2 and 5 seconds.
 var last_spawn_time = game.time;
 
 function update() {
     game.physics.arcade.collide(playerChar, platforms);
-
+    currentWeapon = weapons[currentWeaponID];
 
     //Handle playerChar movement!
     //cancel velocity
 
 
+    //move enemies
+    enemies.forEachAlive(function (enemy) {
+        enemy.position.x -= 2
+    });
+
     var current_time = game.time.time;
-    if(current_time - last_spawn_time > time_til_spawn){
-        time_til_spawn = Math.random()*3000 + 2000;
+    if (current_time - last_spawn_time > time_til_spawn) {
+        time_til_spawn = Math.random() * 3000 + 2000;
         last_spawn_time = current_time;
         spawnEnemy();
     }
-
 
 
     //Movement
@@ -159,17 +196,16 @@ function update() {
         playerChar.animations.play('right');
         rightWasDown = 1;
         moveWorld(this);
+    } else {
+        playerChar.animations.stop();
+        playerChar.frame = 4;
     }
     if (rightWasDown == 1 && cursors.right.isUp) {
         brakeWorld(this);
         rightWasDown = 0;
+        playerChar.animations.stop();
     }
 
-    else {
-        //  Stand still
-        playerChar.animations.stop();
-        playerChar.frame = 4;
-    }
 
     //  Allow the player to jump if they are touching the ground.
     jumpwaspressed = jumppressed;
@@ -188,10 +224,30 @@ function update() {
     //Fire!
     if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
 
-        fireBullet();
+        currentWeapon.fire();
     }
 
-    game.physics.arcade.overlap(bullets, enemies, collisionHandler, null, this);
+
+
+    wasSelectedUpState = SelectedUpState;
+    SelectedUpState = game.input.keyboard.isDown(Phaser.Keyboard.W);
+
+    if (SelectedUpState && !wasSelectedUpState ) {
+                changeWeapon(true);
+    }
+
+
+    wasSelectedUpState1 = SelectedUpState1;
+    SelectedUpState1 = game.input.keyboard.isDown(Phaser.Keyboard.Q);
+
+    if (SelectedUpState1 && !wasSelectedUpState1 ) {
+        changeWeapon(false);
+    }
+
+    game.physics.arcade.overlap(pistol, enemies, collisionHandler, null, this);
+    game.physics.arcade.overlap(machineGun, enemies, collisionHandler, null, this);
+
+
 
 }
 
@@ -217,7 +273,7 @@ function moveWorld(game) {
     game.wall2.tilePosition.x -= 0.5;
     game.wall3.tilePosition.x -= 1;
     game.wall4.tilePosition.x -= 2;
-    enemies.forEachAlive(function(enemy) {enemy.position.x -= 2});
+
 
 }
 
@@ -226,62 +282,62 @@ function brakeWorld(game) {
     var decounter = 0.1;
 
 
-        console.log(game.wall1.tilePosition.x);
-        game.wall1.tilePosition.x -= 0.25-decounter;
-        game.wall2.tilePosition.x -= 0.5-decounter;
-        game.wall3.tilePosition.x -= 1-decounter;
-        game.wall4.tilePosition.x -= 2-decounter;
+    console.log(game.wall1.tilePosition.x);
+    game.wall1.tilePosition.x -= 0.25 - decounter;
+    game.wall2.tilePosition.x -= 0.5 - decounter;
+    game.wall3.tilePosition.x -= 1 - decounter;
+    game.wall4.tilePosition.x -= 2 - decounter;
 
-        decounter += 0.1;
+    decounter += 0.1;
 
+}
+
+function changeWeapon(direction) {
+    if (direction == true) {
+        if (currentWeaponID < lastWeapon) {
+            currentWeaponID++;
+        }
+    }
+    else {
+        if (currentWeaponID > firstWeapon) {
+            currentWeaponID--;
+        }
+    }
 }
 
 function fireBullet() {
 
-    if (game.time.now > bulletTime) {
-        bullet = bullets.getFirstExists(false);
-
-        if (bullet) {
-            bullet.reset(playerChar.body.x + 16, playerChar.body.y + 16);
-            bullet.lifespan = 2000;
-            bullet.rotation = playerChar.rotation;
-            game.physics.arcade.velocityFromRotation(playerChar.rotation, 400, bullet.body.velocity);
-            bulletTime = game.time.now + 400;
-            playBulletGunSound.play();
-        }
-    }
+    weapon.fire();
 
 }
 
 
-
-var enemy_height = Math.random()* 600 + 100;
+var enemy_height = Math.random() * 600 + 100;
 
 function spawnEnemy() {
 
-        enemy_height = Math.random()* 500 + 100;
+    enemy_height = Math.random() * 500 + 100;
 
-        var enemy = enemies.create(game.world.width, enemy_height, 'invader');
-        enemy.anchor.setTo(0.5, 0.5);
-        enemy.rotation = 90;
-        //enemy.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-        //enemy.play('fly');
-        enemy.body.moves = false;
-        console.log("enemy spawned!");
-        enemies.add(enemy);
+    var enemy = enemies.create(game.world.width, enemy_height, 'invader');
+    enemy.anchor.setTo(0.5, 0.5);
+    enemy.rotation = 90;
+    //enemy.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
+    //enemy.play('fly');
+    enemy.body.moves = false;
+    console.log("enemy spawned!");
+    enemies.add(enemy);
 
 
 }
 
 
-
-function collisionHandler (bullet, enemy) {
+function collisionHandler(bullet, enemy) {
 
     //  When a bullet hits an alien we kill them both
     bullet.kill();
     enemy.kill();
 
-
-
 }
+
+
 
