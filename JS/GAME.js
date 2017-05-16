@@ -206,11 +206,11 @@ function update() {
         //kek
     }
 
-    else if (cursors.right.isDown) {
+    //else if (cursors.right.isDown) {
         playerChar.animations.play('right');
         rightWasDown = 1;
         moveWorld(this);
-    } else {
+   /* } else {
         playerChar.animations.stop();
         playerChar.frame = 4;
     }
@@ -218,7 +218,7 @@ function update() {
         brakeWorld(this);
         rightWasDown = 0;
         playerChar.animations.stop();
-    }
+    }*/
 
 
     //  Allow the player to jump if they are touching the ground.
@@ -261,7 +261,7 @@ function update() {
     game.physics.arcade.overlap(pistol.bullets, enemies, collisionHandler, null, this);
     game.physics.arcade.overlap(machineGun.bullets, enemies, collisionHandler, null, this);
     game.physics.arcade.overlap(beam.bullets, enemies, collisionHandler, null, this);
-
+    game.physics.arcade.overlap(enemies, playerChar, collisionHandler, null, this);
 
 
 }
