@@ -268,11 +268,11 @@ function update() {
 
 
 function jump(game) {
-    playerChar.body.velocity.y = -350;
+    playerChar.body.velocity.y = -400;
 }
 
 function checkJump() {
-    if (jumps <= 2) {
+    if (jumps <= 1) {
         console.log("Jumped!");
         return true;
 
