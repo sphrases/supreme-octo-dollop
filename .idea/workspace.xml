@@ -18,7 +18,7 @@
           <file leaf-file-name="GAME.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/JS/GAME.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="144">
+                <state relative-caret-position="-3186">
                   <caret line="33" column="52" lean-forward="false" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
                   <folding />
                 </state>
@@ -49,23 +49,22 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="GLOBALVARS.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="GLOBALVARS.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/JS/GLOBALVARS.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="810">
-                  <caret line="27" column="11" lean-forward="true" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="FUNCTIONS.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="FUNCTIONS.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/JS/FUNCTIONS.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="237">
-                  <caret line="49" column="14" lean-forward="false" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
+                <state relative-caret-position="30">
+                  <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
                   <folding>
-                    <element signature="n#!!block;n#collisionHandler#0" expanded="false" />
                     <element signature="n#!!block;n#moveWorld#0" expanded="false" />
                     <element signature="n#!!block;n#spawnEnemy#0" expanded="false" />
                     <element signature="n#!!block;n#moveEnemies#0" expanded="false" />
@@ -112,8 +111,8 @@
         <option value="$PROJECT_DIR$/CSS/INDEX.css" />
         <option value="$PROJECT_DIR$/JS/GLOBALVARS.js" />
         <option value="$PROJECT_DIR$/HTML/game.html" />
-        <option value="$PROJECT_DIR$/JS/FUNCTIONS.js" />
         <option value="$PROJECT_DIR$/JS/GAME.js" />
+        <option value="$PROJECT_DIR$/JS/FUNCTIONS.js" />
       </list>
     </option>
   </component>
@@ -625,12 +624,12 @@
       <workItem from="1494877157575" duration="7299000" />
       <workItem from="1494926702850" duration="9406000" />
       <workItem from="1495007057653" duration="1898000" />
-      <workItem from="1495013910232" duration="10278000" />
+      <workItem from="1495013910232" duration="10334000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30376000" />
+    <option name="totallyTimeSpent" value="30432000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2582" height="1402" extended-state="6" />
@@ -892,30 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS/FUNCTIONS.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="49" column="14" lean-forward="false" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
-          <folding>
-            <element signature="n#!!block;n#collisionHandler#0" expanded="false" />
-            <element signature="n#!!block;n#moveWorld#0" expanded="false" />
-            <element signature="n#!!block;n#spawnEnemy#0" expanded="false" />
-            <element signature="n#!!block;n#moveEnemies#0" expanded="false" />
-            <element signature="n#!!block;n#weaponSwitch#0" expanded="false" />
-            <element signature="n#!!block;n#fireWeapon#0" expanded="false" />
-            <element signature="n#!!block;n#readInput#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS/GLOBALVARS.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="27" column="11" lean-forward="true" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HTML/game.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="684">
@@ -926,9 +901,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JS/GAME.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state relative-caret-position="-3186">
           <caret line="33" column="52" lean-forward="false" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS/GLOBALVARS.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS/FUNCTIONS.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+          <folding>
+            <element signature="n#!!block;n#moveWorld#0" expanded="false" />
+            <element signature="n#!!block;n#spawnEnemy#0" expanded="false" />
+            <element signature="n#!!block;n#moveEnemies#0" expanded="false" />
+            <element signature="n#!!block;n#weaponSwitch#0" expanded="false" />
+            <element signature="n#!!block;n#fireWeapon#0" expanded="false" />
+            <element signature="n#!!block;n#readInput#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,5 +1,5 @@
 function collisionHandler(bullet, enemy) {
-    enemyHit.play();
+    //enemyHit.play();
     bullet.kill();
     enemy.kill();
 
