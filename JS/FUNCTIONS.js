@@ -47,7 +47,7 @@ function jump() {
         if (jumps <= 1) {
             console.log("Jumped!");
             playerChar.body.velocity.y = -400;
-            playJumpSound.play();
+            //playJumpSound.play();
 
         }
         jumps++;
