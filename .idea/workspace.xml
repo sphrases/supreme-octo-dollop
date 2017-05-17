@@ -15,7 +15,7 @@
     <splitter split-orientation="horizontal" split-proportion="0.56586343">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="GAME.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="GAME.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/JS/GAME.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="-3186">
@@ -25,11 +25,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="game.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="game.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/HTML/game.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="684">
-                  <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+                <state relative-caret-position="645">
+                  <caret line="29" column="41" lean-forward="true" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
                   <folding />
                 </state>
               </provider>
@@ -110,9 +110,9 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/CSS/INDEX.css" />
         <option value="$PROJECT_DIR$/JS/GLOBALVARS.js" />
-        <option value="$PROJECT_DIR$/HTML/game.html" />
         <option value="$PROJECT_DIR$/JS/GAME.js" />
         <option value="$PROJECT_DIR$/JS/FUNCTIONS.js" />
+        <option value="$PROJECT_DIR$/HTML/game.html" />
       </list>
     </option>
   </component>
@@ -624,12 +624,12 @@
       <workItem from="1494877157575" duration="7299000" />
       <workItem from="1494926702850" duration="9406000" />
       <workItem from="1495007057653" duration="1898000" />
-      <workItem from="1495013910232" duration="10334000" />
+      <workItem from="1495013910232" duration="10366000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30432000" />
+    <option name="totallyTimeSpent" value="30464000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2582" height="1402" extended-state="6" />
@@ -891,14 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/game.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JS/GAME.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3186">
@@ -927,6 +919,14 @@
             <element signature="n#!!block;n#fireWeapon#0" expanded="false" />
             <element signature="n#!!block;n#readInput#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/game.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="29" column="41" lean-forward="true" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
