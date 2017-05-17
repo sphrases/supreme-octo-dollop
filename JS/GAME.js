@@ -29,10 +29,9 @@ function preload() {
     //load sounds
     game.load.audio('bulletGunSound', '../RES/audio/pew.wav');
     game.load.audio('machineGunSound', '../RES/audio/machineGun.mp3');
-    game.load.audio('enemyHit', '../RES/audio/YeahBoi/boi.mp3');
+    game.load.audio('enemyHit', '../RES/audio/smallExplosion.mp3');
     game.load.audio('playJumpSound', '../RES/audio/YeahBoi/boi.mp3');
     game.load.audio('laserGunSound', '../RES/audio/laser.mp3');
-
 
 
     //load enemies
@@ -59,11 +58,11 @@ function create() {
 
     /*wallGroup = game.add.group();
 
-    wallGroup.add(this.wall0);
-    wallGroup.add(this.wall1);
-    wallGroup.add(this.wall2);
-    wallGroup.add(this.wall3);
-    wallGroup.add(this.wall4);*/
+     wallGroup.add(this.wall0);
+     wallGroup.add(this.wall1);
+     wallGroup.add(this.wall2);
+     wallGroup.add(this.wall3);
+     wallGroup.add(this.wall4);*/
     //--------------------------------------------------------------
 
 
@@ -96,35 +95,10 @@ function create() {
     playLaserSound = game.add.audio('laserGunSound');
 
     //pistol
-    pistol = game.add.weapon(30, 'bullet');
-    pistol.bulletSpeed = 300;
-    pistol.fireRate = 600;
-    pistol.bulletAngleVariance = 0;
-    pistol.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
-    pistol.bulletAngleOffset = 0;
-    pistol.fireAngle = 0;
-    pistol.trackSprite(playerChar, 80, 32);
-
-    //mg
-    machineGun = game.add.weapon(1000, 'bullet');
-    machineGun.bulletSpeed = 500;
-    machineGun.fireRate = 90;
-    machineGun.bulletAngleVariance = 10;
-    machineGun.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
-    machineGun.bulletAngleOffset = 0;
-    machineGun.fireAngle = 0;
-    machineGun.trackSprite(playerChar, 80, 32);
-    //beam
-    beam = game.add.weapon(3, 'beam');
-    beam.bulletSpeed = 1000;
-    beam.fireRate = 300;
-    beam.bulletAngleVariance = 0;
-    beam.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
-    beam.bulletAngleOffset = 0;
-    beam.fireAngle = 0;
-    beam.trackSprite(playerChar, 80, 32);
-
-    weapons.push(pistol, machineGun, beam);
+    createWeapon(weapon1, 30, 'bullet', 300, 600, 0, playBulletGunSound);
+    createWeapon(weapon2, 30, 'bullet', 500, 90, 7, playMachineGunSound);
+    createWeapon(weapon3, 3, 'beam', 1000, 300, 0, playLaserSound);
+    createWeapon(weapon4, 40, 'beam', 1000, 30, 0, playLaserSound);
 
     firstWeapon = 0;
     lastWeapon = weapons.length - 1;
@@ -139,9 +113,7 @@ function create() {
     gameKeyboard = game.input.Keyboard;
     cursors = game.input.keyboard.createCursorKeys()
     key = game.input.keyboard;
-    pistol.onFire.add(function e() {playBulletGunSound.play()});
-    machineGun.onFire.add(function e() {playMachineGunSound.play()});
-    beam.onFire.add(function e() {playLaserSound.play()});
+
 }
 
 function update() {
@@ -152,7 +124,6 @@ function update() {
     jumppressed = cursors.up.isDown;
 
 
-
     moveWorld(this.game);
     spawnEnemy();
     moveEnemies();
@@ -160,15 +131,12 @@ function update() {
     playAnimations();
 
 
-
-
     //READ INPUTS...
 
-
-
-    game.physics.arcade.overlap(pistol.bullets, enemies, collisionHandler, null, this);
-    game.physics.arcade.overlap(machineGun.bullets, enemies, collisionHandler, null, this);
-    game.physics.arcade.overlap(beam.bullets, enemies, collisionHandler, null, this);
+    weapons.forEach(
+        function e(x) {
+            game.physics.arcade.overlap(x.bullets, enemies, collisionHandler, null, this)
+        });
     game.physics.arcade.overlap(enemies, playerChar, collisionHandler, null, this);
 
 

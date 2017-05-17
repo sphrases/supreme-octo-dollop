@@ -5,6 +5,9 @@ var wall3;
 var wall4;
 var wallGroup;
 
+
+var weapon1, weapon2, weapon3, weapon4, weapon5, weapon6;
+
 var windowHeight = 700;
 var windowWidth = 1000;
 var jumps = 0;
@@ -41,4 +44,4 @@ var SelectedUpState2;
 var playerIsInAir;
 
 var time_til_spawn = Math.random() * 3000 + 2000;  //Random time between 2 and 5 seconds.
-var enemy_height = Math.random() * 600 + 100;
+var enemy_height = Math.random() * 550 + 100;

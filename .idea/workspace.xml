@@ -12,24 +12,24 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.56586343">
+    <splitter split-orientation="horizontal" split-proportion="0.47751004">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="GAME.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="GAME.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/JS/GAME.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-3186">
-                  <caret line="33" column="52" lean-forward="false" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
+                <state relative-caret-position="390">
+                  <caret line="31" column="60" lean-forward="false" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="game.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="game.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/HTML/game.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="645">
-                  <caret line="29" column="41" lean-forward="true" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+                <state relative-caret-position="315">
+                  <caret line="18" column="38" lean-forward="false" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
                   <folding />
                 </state>
               </provider>
@@ -52,8 +52,8 @@
           <file leaf-file-name="GLOBALVARS.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/JS/GLOBALVARS.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="9" />
+                <state relative-caret-position="-153">
+                  <caret line="8" column="57" lean-forward="false" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
                   <folding />
                 </state>
               </provider>
@@ -62,15 +62,17 @@
           <file leaf-file-name="FUNCTIONS.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/JS/FUNCTIONS.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+                <state relative-caret-position="120">
+                  <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
                   <folding>
+                    <element signature="n#!!block;n#createWeapon#0" expanded="false" />
                     <element signature="n#!!block;n#moveWorld#0" expanded="false" />
                     <element signature="n#!!block;n#spawnEnemy#0" expanded="false" />
                     <element signature="n#!!block;n#moveEnemies#0" expanded="false" />
+                    <element signature="n#!!block;n#jump#0" expanded="false" />
+                    <element signature="n#!!block;n#playAnimations#0" expanded="false" />
                     <element signature="n#!!block;n#weaponSwitch#0" expanded="false" />
                     <element signature="n#!!block;n#fireWeapon#0" expanded="false" />
-                    <element signature="n#!!block;n#readInput#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -94,6 +96,7 @@
       <find>jump</find>
       <find>update</find>
       <find>game</find>
+      <find>pistol</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -109,10 +112,10 @@
       <list>
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/CSS/INDEX.css" />
+        <option value="$PROJECT_DIR$/HTML/game.html" />
         <option value="$PROJECT_DIR$/JS/GLOBALVARS.js" />
         <option value="$PROJECT_DIR$/JS/GAME.js" />
         <option value="$PROJECT_DIR$/JS/FUNCTIONS.js" />
-        <option value="$PROJECT_DIR$/HTML/game.html" />
       </list>
     </option>
   </component>
@@ -624,12 +627,12 @@
       <workItem from="1494877157575" duration="7299000" />
       <workItem from="1494926702850" duration="9406000" />
       <workItem from="1495007057653" duration="1898000" />
-      <workItem from="1495013910232" duration="10366000" />
+      <workItem from="1495013910232" duration="14268000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30464000" />
+    <option name="totallyTimeSpent" value="34366000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2582" height="1402" extended-state="6" />
@@ -723,7 +726,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -891,42 +894,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/game.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="18" column="38" lean-forward="false" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/JS/GAME.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3186">
-          <caret line="33" column="52" lean-forward="false" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
+        <state relative-caret-position="390">
+          <caret line="31" column="60" lean-forward="false" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JS/GLOBALVARS.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="9" />
+        <state relative-caret-position="-153">
+          <caret line="8" column="57" lean-forward="false" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JS/FUNCTIONS.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        <state relative-caret-position="120">
+          <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
           <folding>
+            <element signature="n#!!block;n#createWeapon#0" expanded="false" />
             <element signature="n#!!block;n#moveWorld#0" expanded="false" />
             <element signature="n#!!block;n#spawnEnemy#0" expanded="false" />
             <element signature="n#!!block;n#moveEnemies#0" expanded="false" />
+            <element signature="n#!!block;n#jump#0" expanded="false" />
+            <element signature="n#!!block;n#playAnimations#0" expanded="false" />
             <element signature="n#!!block;n#weaponSwitch#0" expanded="false" />
             <element signature="n#!!block;n#fireWeapon#0" expanded="false" />
-            <element signature="n#!!block;n#readInput#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/game.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="29" column="41" lean-forward="true" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,21 @@
+
+function createWeapon(object, bullets, graphic, bulletSpeed, fireRate, angleVar,soundFunction) {
+
+    object  = game.add.weapon(bullets, graphic);
+    object.bulletSpeed = bulletSpeed;
+    object.fireRate = fireRate;
+    object.bulletAngleVariance = angleVar;
+    object.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+    object.bulletAngleOffset = 0;
+    object.fireAngle = 0;
+    object.trackSprite(playerChar, 80, 32);
+    object.onFire.add(function e() {soundFunction.play()});
+    weapons.push(object);
+
+}
+
 function collisionHandler(bullet, enemy) {
-    //enemyHit.play();
+    enemyHit.play();
     bullet.kill();
     enemy.kill();
 
@@ -82,21 +98,18 @@ function readInput() {
         button = "space";
 
     }
-    if (key.isDown(Phaser.Keyboard.ONE)) {
-        weaponSwitch(1);
-        button = "Q";
 
-    }
-    if (key.isDown(Phaser.Keyboard.TWO)) {
-        weaponSwitch(2);
-        button = "W";
 
-    }
-    if (key.isDown(Phaser.Keyboard.THREE)) {
-        weaponSwitch(3);
-        button = "W";
+    game.input.keyboard.onDownCallback = function() {
+        var tmp = game.input.keyboard.event.keyCode-48;
+        console.log(tmp);
+        if (tmp < 9 && tmp > 0) {
+            weaponSwitch(tmp);
 
+        }
     }
+
+
     if (cursors.up.isDown) {
         jump();
         button = "UP";
