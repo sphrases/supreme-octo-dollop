@@ -31,7 +31,7 @@ function preload() {
     game.load.audio('machineGunSound', '../RES/audio/machineGun.mp3');
     game.load.audio('enemyHit', '../RES/audio/YeahBoi/boi.mp3');
     game.load.audio('playJumpSound', '../RES/audio/YeahBoi/boi.mp3');
-    game.load.audio('laserGunSound', '../RES/audio/Laser.mp3');
+    game.load.audio('laserGunSound', '../RES/audio/laser.mp3');
 
 
 

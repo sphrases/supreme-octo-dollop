@@ -15,20 +15,20 @@
     <splitter split-orientation="horizontal" split-proportion="0.56586343">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="GAME.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="GAME.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/JS/GAME.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-2166">
-                  <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+                <state relative-caret-position="144">
+                  <caret line="33" column="52" lean-forward="false" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="game.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="game.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/HTML/game.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="720">
+                <state relative-caret-position="684">
                   <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
                   <folding />
                 </state>
@@ -111,9 +111,9 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/CSS/INDEX.css" />
         <option value="$PROJECT_DIR$/JS/GLOBALVARS.js" />
-        <option value="$PROJECT_DIR$/JS/GAME.js" />
         <option value="$PROJECT_DIR$/HTML/game.html" />
         <option value="$PROJECT_DIR$/JS/FUNCTIONS.js" />
+        <option value="$PROJECT_DIR$/JS/GAME.js" />
       </list>
     </option>
   </component>
@@ -625,12 +625,12 @@
       <workItem from="1494877157575" duration="7299000" />
       <workItem from="1494926702850" duration="9406000" />
       <workItem from="1495007057653" duration="1898000" />
-      <workItem from="1495013910232" duration="10181000" />
+      <workItem from="1495013910232" duration="10278000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30279000" />
+    <option name="totallyTimeSpent" value="30376000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2582" height="1402" extended-state="6" />
@@ -916,18 +916,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS/GAME.js">
+    <entry file="file://$PROJECT_DIR$/HTML/game.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2166">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state relative-caret-position="684">
+          <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/game.html">
+    <entry file="file://$PROJECT_DIR$/JS/GAME.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+        <state relative-caret-position="144">
+          <caret line="33" column="52" lean-forward="false" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
           <folding />
         </state>
       </provider>
