@@ -45,3 +45,5 @@ var playerIsInAir;
 
 var time_til_spawn = Math.random() * 3000 + 2000;  //Random time between 2 and 5 seconds.
 var enemy_height = Math.random() * 550 + 100;
+
+var backgroundMusic;

@@ -7,6 +7,7 @@ var game = new Phaser.Game(windowWidth, windowHeight, Phaser.AUTO, 'myPhaserID',
 
 var last_spawn_time = game.time;
 
+
 function preload() {
 
 
@@ -16,6 +17,7 @@ function preload() {
     game.load.image("bgLvl2", "../RES/bg/layer2.png");
     game.load.image("bgLvl3", "../RES/bg/plx-4.png");
     game.load.image("bgLvl4", "../RES/bg/plx-5.png");
+
 
     //loading the players spritesheet
     game.load.spritesheet('dude', '../RES/dude.png', 32, 48);
@@ -32,15 +34,19 @@ function preload() {
     game.load.audio('enemyHit', '../RES/audio/smallExplosion.mp3');
     game.load.audio('playJumpSound', '../RES/audio/YeahBoi/boi.mp3');
     game.load.audio('laserGunSound', '../RES/audio/laser.mp3');
+    game.load.audio('background_music', '../RES/audio/Pocketmaster.mp3');
 
 
     //load enemies
     game.load.image('enemyBullet', '../RES/sprites/bullet2.png');
     game.load.spritesheet('invader', '../RES/sprites/ship2.png', 32, 32);
 
+
 }
 
 function create() {
+
+
     //Initializing the physix system
     this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -114,9 +120,16 @@ function create() {
     cursors = game.input.keyboard.createCursorKeys()
     key = game.input.keyboard;
 
+    // Background-Music
+    backgroundMusic = game.add.audio('background_music');
+    backgroundMusic.loop = true;
+    backgroundMusic.play();
+
+
 }
 
 function update() {
+
 
     game.physics.arcade.collide(playerChar, platforms);
     currentWeapon = weapons[currentWeaponID];
