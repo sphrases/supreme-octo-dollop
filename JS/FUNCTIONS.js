@@ -1,5 +1,5 @@
 
-function createWeapon(object, bullets, graphic, bulletSpeed, fireRate, angleVar,soundFunction) {
+function createWeapon(object, bullets, graphic, bulletSpeed, fireRate, angleVar,soundFunction, extraFunction) {
 
     object  = game.add.weapon(bullets, graphic);
     object.bulletSpeed = bulletSpeed;
@@ -10,6 +10,10 @@ function createWeapon(object, bullets, graphic, bulletSpeed, fireRate, angleVar,
     object.fireAngle = 0;
     object.trackSprite(playerChar, 80, 32);
     object.onFire.add(function e() {soundFunction.play()});
+
+    if(extraFunction != undefined) {
+        object.extraFunction;
+    }
     weapons.push(object);
 
 }
@@ -24,7 +28,7 @@ function collisionHandler(bullet, enemy) {
 function moveWorld(game) {
     wall1.tilePosition.x -= 0.25;
     wall2.tilePosition.x -= 0.5;
-    wall3.tilePosition.x -= 1;
+    wall3.tilePosition.x -= 2;
     wall4.tilePosition.x -= 2;
 
 }
@@ -50,7 +54,7 @@ function spawnEnemy() {
 
 function moveEnemies() {
     enemies.forEachAlive(function (enemy) {
-        enemy.position.x -= 2
+        enemy.position.x -= 2;
 
     });
 }
@@ -103,7 +107,7 @@ function readInput() {
     game.input.keyboard.onDownCallback = function() {
         var tmp = game.input.keyboard.event.keyCode-48;
         console.log(tmp);
-        if (tmp < 9 && tmp > 0) {
+        if (tmp < weapons.length+1 && tmp > 0) {
             weaponSwitch(tmp);
 
         }
@@ -129,6 +133,19 @@ function readInput() {
     }
 
     return button;
+}
+
+function toggleMusic(){
+    musicPlaying =! musicPlaying;
+
+    if(!musicPlaying) {
+        backgroundMusic.stop();
+        musicToggleButton.setFrames(1);
+
+    } else {
+        backgroundMusic.play();
+        musicToggleButton.setFrames(0);
+    }
 }
 
 

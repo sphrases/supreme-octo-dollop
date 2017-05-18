@@ -15,8 +15,8 @@ function preload() {
     game.load.image("bgLvl0", "../RES/bg/layer0.png");
     game.load.image("bgLvl1", "../RES/bg/layer1.png");
     game.load.image("bgLvl2", "../RES/bg/layer2.png");
-    game.load.image("bgLvl3", "../RES/bg/plx-4.png");
-    game.load.image("bgLvl4", "../RES/bg/plx-5.png");
+    game.load.image("bgLvl3", "../RES/bg/layer3.png");
+    game.load.image("bgLvl4", "../RES/bg/layer4.png");
 
 
     //loading the players spritesheet
@@ -26,7 +26,10 @@ function preload() {
 
     game.load.image('bullet', '../RES/sprites/bullet2.png');
     game.load.image('beam', '../RES/sprites/beam.png');
+    game.load.image('piml', '../RES/sprites/piml.png');
 
+
+    game.load.spritesheet('musicSprite', '../RES/sprites/music_sprite.png',100,100);
 
     //load sounds
     game.load.audio('bulletGunSound', '../RES/audio/pew.wav');
@@ -34,7 +37,7 @@ function preload() {
     game.load.audio('enemyHit', '../RES/audio/smallExplosion.mp3');
     game.load.audio('playJumpSound', '../RES/audio/YeahBoi/boi.mp3');
     game.load.audio('laserGunSound', '../RES/audio/laser.mp3');
-    game.load.audio('background_music', '../RES/audio/Pocketmaster.mp3');
+    game.load.audio('background_music', '../RES/audio/Pocketmaster.wav');
 
 
     //load enemies
@@ -59,8 +62,12 @@ function create() {
     wall4 = game.add.tileSprite(0, 0, game.width, game.height, "bgLvl4");
 
 
-    wall3.tileScale.set(3.2, 3.2);
-    wall4.tileScale.set(3.2, 3.2);
+
+
+    musicToggleButton = game.add.button(960, 0, 'musicSprite', toggleMusic, this, 0);
+    musicToggleButton.scale.set(0.4, 0.4);
+    //wall3.tileScale.set(3.2, 3.2);
+    //wall4.tileScale.set(3.2, 3.2);
 
     /*wallGroup = game.add.group();
 
@@ -75,14 +82,14 @@ function create() {
     //Init ground layer
     platforms = game.add.group();
     platforms.enableBody = true;
-    var ground = platforms.create(0, game.world.height - 82, 'ground');
+    var ground = platforms.create(0, game.world.height - 90, 'ground');
     ground.scale.setTo(3, 2);
     ground.body.immovable = true;
     ground.alpha = 0
 
 
     //Init character
-    playerChar = game.add.sprite(150, game.world.height - 200, 'dude');
+    playerChar = game.add.sprite(150, game.world.height - 190, 'dude');
     game.physics.arcade.enable(playerChar);
     playerChar.body.bounce.y = 0;
     playerChar.body.gravity.y = 300;
@@ -105,6 +112,8 @@ function create() {
     createWeapon(weapon2, 30, 'bullet', 500, 90, 7, playMachineGunSound);
     createWeapon(weapon3, 3, 'beam', 1000, 300, 0, playLaserSound);
     createWeapon(weapon4, 40, 'beam', 1000, 30, 0, playLaserSound);
+    createWeapon(weapon5, 40, 'dude', 1000, 100, 0, enemyHit);
+    createWeapon(weapon6, 1, 'piml', 700, 100, 0, playLaserSound);
 
     firstWeapon = 0;
     lastWeapon = weapons.length - 1;
@@ -124,7 +133,7 @@ function create() {
     backgroundMusic = game.add.audio('background_music');
     backgroundMusic.loop = true;
     backgroundMusic.play();
-
+    musicPlaying = true;
 
 }
 
