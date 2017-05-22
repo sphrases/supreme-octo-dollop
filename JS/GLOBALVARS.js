@@ -4,6 +4,7 @@ var wall2;
 var wall3;
 var wall4;
 var wallGroup;
+var velocityVector;
 
 
 var weapon1, weapon2, weapon3, weapon4, weapon5, weapon6;
@@ -49,3 +50,16 @@ var enemy_height = Math.random() * 550 + 100;
 var backgroundMusic;
 var musicPlaying;
 var musicToggleButton;
+var timer;
+
+var livesCounter1;
+var livesCounter2;
+var livesCounter3;
+var lives = [];
+var livesCount;
+var liveWasChanged;
+var liveChanged;
+
+var blinkTimer;
+var blinkCounter = 0;
+var blinkBool = true;

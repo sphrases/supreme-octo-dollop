@@ -29,7 +29,7 @@ function preload() {
     game.load.image('piml', '../RES/sprites/piml.png');
 
 
-    game.load.spritesheet('musicSprite', '../RES/sprites/music_sprite.png',100,100);
+    game.load.spritesheet('musicSprite', '../RES/sprites/music_sprite.png', 100, 100);
 
     //load sounds
     game.load.audio('bulletGunSound', '../RES/audio/pew.wav');
@@ -43,6 +43,7 @@ function preload() {
     //load enemies
     game.load.image('enemyBullet', '../RES/sprites/bullet2.png');
     game.load.spritesheet('invader', '../RES/sprites/ship2.png', 32, 32);
+    game.load.spritesheet('heart', '../RES/sprites/heart.png', 32, 32, 2);
 
 
 }
@@ -62,22 +63,25 @@ function create() {
     wall4 = game.add.tileSprite(0, 0, game.width, game.height, "bgLvl4");
 
 
-
-
     musicToggleButton = game.add.button(960, 0, 'musicSprite', toggleMusic, this, 0);
     musicToggleButton.scale.set(0.4, 0.4);
-    //wall3.tileScale.set(3.2, 3.2);
-    //wall4.tileScale.set(3.2, 3.2);
 
-    /*wallGroup = game.add.group();
 
-     wallGroup.add(this.wall0);
-     wallGroup.add(this.wall1);
-     wallGroup.add(this.wall2);
-     wallGroup.add(this.wall3);
-     wallGroup.add(this.wall4);*/
-    //--------------------------------------------------------------
+    //create lives
+    livesCounter1 = game.add.sprite(10, 5, 'heart');
+    livesCounter1.scale.set(1.5, 1.5);
+    livesCounter2 = game.add.sprite(60, 5, 'heart');
+    livesCounter2.scale.set(1.5, 1.5);
+    livesCounter3 = game.add.sprite(110, 5, 'heart');
+    livesCounter3.scale.set(1.5, 1.5);
 
+    lives.push(livesCounter1);
+    lives.push(livesCounter2);
+    lives.push(livesCounter3);
+
+
+
+    console.log(lives);
 
     //Init ground layer
     platforms = game.add.group();
@@ -85,19 +89,20 @@ function create() {
     var ground = platforms.create(0, game.world.height - 90, 'ground');
     ground.scale.setTo(3, 2);
     ground.body.immovable = true;
-    ground.alpha = 0
+    ground.alpha = false;
 
 
     //Init character
     playerChar = game.add.sprite(150, game.world.height - 190, 'dude');
     game.physics.arcade.enable(playerChar);
     playerChar.body.bounce.y = 0;
-    playerChar.body.gravity.y = 300;
+    playerChar.body.gravity.y = 400;
     playerChar.body.collideWorldBounds = true;
     playerChar.scale.setTo(2, 2);
 
     playerChar.animations.add('jump', [3], 10, true);
     playerChar.animations.add('right', [5, 6], 7, true);
+    playerChar.animations.add('hit', [6, 9], 7, true);
 
 
     //WEAPONS!
@@ -113,7 +118,7 @@ function create() {
     createWeapon(weapon3, 3, 'beam', 1000, 300, 0, playLaserSound);
     createWeapon(weapon4, 40, 'beam', 1000, 30, 0, playLaserSound);
     createWeapon(weapon5, 40, 'dude', 1000, 100, 0, enemyHit);
-    createWeapon(weapon6, 1, 'piml', 700, 100, 0, playLaserSound);
+    //createWeapon(weapon6, 1, 'piml', 700, 100, 0, playLaserSound);
 
     firstWeapon = 0;
     lastWeapon = weapons.length - 1;
@@ -134,7 +139,14 @@ function create() {
     backgroundMusic.loop = true;
     backgroundMusic.play();
     musicPlaying = true;
+    velocityVector = 2;
 
+    timer = game.time.create(false);
+    timer.loop(10000, timerHandler, this);
+    timer.start();
+
+
+    livesCount = 3;
 }
 
 function update() {
@@ -144,11 +156,11 @@ function update() {
     currentWeapon = weapons[currentWeaponID];
     jumpwaspressed = jumppressed;
     jumppressed = cursors.up.isDown;
-
+    liveWasChanged = liveChanged;
 
     moveWorld(this.game);
     spawnEnemy();
-    moveEnemies();
+
     readInput();
     playAnimations();
 
@@ -159,7 +171,10 @@ function update() {
         function e(x) {
             game.physics.arcade.overlap(x.bullets, enemies, collisionHandler, null, this)
         });
-    game.physics.arcade.overlap(enemies, playerChar, collisionHandler, null, this);
+    liveChanged = false;
+    game.physics.arcade.overlap(enemies, playerChar, hitPlayer, null, this);
+
+
 
 
 }

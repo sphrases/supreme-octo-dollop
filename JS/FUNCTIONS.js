@@ -1,7 +1,6 @@
+function createWeapon(object, bullets, graphic, bulletSpeed, fireRate, angleVar, soundFunction, extraFunction) {
 
-function createWeapon(object, bullets, graphic, bulletSpeed, fireRate, angleVar,soundFunction, extraFunction) {
-
-    object  = game.add.weapon(bullets, graphic);
+    object = game.add.weapon(bullets, graphic);
     object.bulletSpeed = bulletSpeed;
     object.fireRate = fireRate;
     object.bulletAngleVariance = angleVar;
@@ -9,9 +8,11 @@ function createWeapon(object, bullets, graphic, bulletSpeed, fireRate, angleVar,
     object.bulletAngleOffset = 0;
     object.fireAngle = 0;
     object.trackSprite(playerChar, 80, 32);
-    object.onFire.add(function e() {soundFunction.play()});
+    object.onFire.add(function e() {
+        soundFunction.play()
+    });
 
-    if(extraFunction != undefined) {
+    if (extraFunction != undefined) {
         object.extraFunction;
     }
     weapons.push(object);
@@ -26,12 +27,16 @@ function collisionHandler(bullet, enemy) {
 }
 
 function moveWorld(game) {
-    wall1.tilePosition.x -= 0.25;
-    wall2.tilePosition.x -= 0.5;
-    wall3.tilePosition.x -= 2;
-    wall4.tilePosition.x -= 2;
+    wall1.tilePosition.x -= 0.25 * velocityVector;
+    wall2.tilePosition.x -= 0.5 * velocityVector;
+    wall3.tilePosition.x -= 2 * velocityVector;
+    wall4.tilePosition.x -= 2 * velocityVector;
+    enemies.forEachAlive(function (enemy) {
+        enemy.position.x -= 2 * velocityVector + 2;
 
+    });
 }
+
 
 function spawnEnemy() {
     var current_time = game.time.time;
@@ -47,17 +52,11 @@ function spawnEnemy() {
         //enemy.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
         //enemy.play('fly');
         enemy.body.moves = false;
-        console.log("enemy spawned!");
+
         enemies.add(enemy);
     }
 }
 
-function moveEnemies() {
-    enemies.forEachAlive(function (enemy) {
-        enemy.position.x -= 2;
-
-    });
-}
 
 function jump() {
     if (playerChar.body.touching.down) {
@@ -65,7 +64,7 @@ function jump() {
     }
     if (jumppressed && !jumpwaspressed) {
         if (jumps <= 1) {
-            console.log("Jumped!");
+
             playerChar.body.velocity.y = -400;
             //playJumpSound.play();
 
@@ -79,9 +78,10 @@ function playAnimations() {
     if (!playerChar.body.touching.down) {
         playerChar.play('jump');
 
-    } else {
+    }  else {
         playerChar.play('right');
     }
+
 
 }
 
@@ -104,10 +104,10 @@ function readInput() {
     }
 
 
-    game.input.keyboard.onDownCallback = function() {
-        var tmp = game.input.keyboard.event.keyCode-48;
-        console.log(tmp);
-        if (tmp < weapons.length+1 && tmp > 0) {
+    game.input.keyboard.onDownCallback = function () {
+        var tmp = game.input.keyboard.event.keyCode - 48;
+
+        if (tmp < weapons.length + 1 && tmp > 0) {
             weaponSwitch(tmp);
 
         }
@@ -135,10 +135,10 @@ function readInput() {
     return button;
 }
 
-function toggleMusic(){
-    musicPlaying =! musicPlaying;
+function toggleMusic() {
+    musicPlaying = !musicPlaying;
 
-    if(!musicPlaying) {
+    if (!musicPlaying) {
         backgroundMusic.stop();
         musicToggleButton.setFrames(1);
 
@@ -147,5 +147,68 @@ function toggleMusic(){
         musicToggleButton.setFrames(0);
     }
 }
+
+
+function timerHandler() {
+    velocityVector += 0.1;
+    console.log(velocityVector);
+
+}
+
+function changeLife(direction) {
+
+        //boolean direction true/false
+    if (direction) {
+        livesCount + 1;
+        lives[livesCount - 1].frame(0);
+        liveChanged = true;
+
+
+    }
+    else {
+        livesCount -= 1;
+        lives[livesCount].frame = 1
+        liveChanged = true;
+    }
+
+}
+
+
+function hitPlayer() {
+
+    liveChanged = true;
+
+    if (liveChanged && !liveWasChanged) {
+        changeLife(false);
+        playerBlink();
+    }
+
+    if (livesCount < 1) {
+        //kill player Function
+        playerChar.kill();
+    }
+}
+
+function playerBlink() {
+    blinkTimer = game.time.create(false);
+    blinkTimer.loop(100, blinkAnim, this);
+    blinkTimer.start();
+}
+
+function blinkAnim() {
+
+
+    blinkBool = !blinkBool;
+    playerChar.alpha = blinkBool;
+    blinkCounter++;
+
+    if(blinkCounter > 9) {
+        blinkTimer.stop();
+        blinkCounter = 0;
+    }
+
+}
+
+
 
 
