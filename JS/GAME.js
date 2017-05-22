@@ -21,6 +21,7 @@ function preload() {
 
     //loading the players spritesheet
     game.load.spritesheet('dude', '../RES/dude.png', 32, 48);
+    game.load.spritesheet('guns', '../RES/guns.png', 32, 48);
 
     game.load.image('ground', '../RES/ground/ground.png');
 
@@ -53,6 +54,7 @@ function create() {
 
     //Initializing the physix system
     this.game.physics.startSystem(Phaser.Physics.ARCADE);
+
 
 
     //Initializing Background!-------------------------------------
@@ -93,17 +95,22 @@ function create() {
 
 
     //Init character
-    playerChar = game.add.sprite(150, game.world.height - 190, 'dude');
+    playerChar = game.add.sprite(150, game.world.height - 300, 'dude');
     game.physics.arcade.enable(playerChar);
     playerChar.body.bounce.y = 0;
     playerChar.body.gravity.y = 400;
     playerChar.body.collideWorldBounds = true;
-    playerChar.scale.setTo(2, 2);
+    playerChar.scale.setTo(2.5, 2.5);
+
+    guns = game.add.sprite(0,0, 'guns');
+    //guns.scale.setTo(2, 2);
+    guns.frame = 0;
+    playerChar.addChild(guns);
 
     playerChar.animations.add('jump', [3], 10, true);
     playerChar.animations.add('right', [5, 6], 7, true);
     playerChar.animations.add('hit', [6, 9], 7, true);
-
+   
 
     //WEAPONS!
     playBulletGunSound = game.add.audio('bulletGunSound');

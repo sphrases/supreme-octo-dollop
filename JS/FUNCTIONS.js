@@ -7,7 +7,7 @@ function createWeapon(object, bullets, graphic, bulletSpeed, fireRate, angleVar,
     object.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
     object.bulletAngleOffset = 0;
     object.fireAngle = 0;
-    object.trackSprite(playerChar, 80, 32);
+    object.trackSprite(playerChar, 93, 41);
     object.onFire.add(function e() {
         soundFunction.play()
     });
@@ -88,6 +88,7 @@ function playAnimations() {
 function weaponSwitch(number) {
     if (number != undefined) {
         currentWeaponID = number - 1;
+        guns.frame = number - 1;
     }
 }
 
