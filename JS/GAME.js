@@ -97,7 +97,7 @@ function create() {
     playerChar.scale.setTo(2, 2);
 
     playerChar.animations.add('jump', [3], 10, true);
-    playerChar.animations.add('right', [5, 6,], 10, true);
+    playerChar.animations.add('right', [5, 6], 7, true);
 
 
     //WEAPONS!
@@ -126,7 +126,7 @@ function create() {
     enemies.physicsBodyType = Phaser.Physics.ARCADE;
 
     gameKeyboard = game.input.Keyboard;
-    cursors = game.input.keyboard.createCursorKeys()
+    cursors = game.input.keyboard.createCursorKeys();
     key = game.input.keyboard;
 
     // Background-Music
