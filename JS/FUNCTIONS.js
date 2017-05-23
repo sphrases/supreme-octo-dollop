@@ -31,12 +31,15 @@ function moveWorld(game) {
     wall2.tilePosition.x -= 0.5 * velocityVector;
     wall3.tilePosition.x -= 2 * velocityVector;
     wall4.tilePosition.x -= 2 * velocityVector;
+    weaponDropGroup.forEachAlive(function (weapon) {
+        weapon.position.x -= 2 * velocityVector + 1;
+
+    });
     enemies.forEachAlive(function (enemy) {
         enemy.position.x -= 2 * velocityVector + 2;
 
     });
 }
-
 
 function spawnEnemy() {
     var current_time = game.time.time;
@@ -44,7 +47,7 @@ function spawnEnemy() {
         time_til_spawn = Math.random() * 3000 + 2000;
         last_spawn_time = current_time;
 
-        enemy_height = Math.random() * 500 + 100;
+        enemy_height = Math.random() * 550 + 200;
 
         var enemy = enemies.create(game.world.width, enemy_height, 'invader');
         enemy.anchor.setTo(0.5, 0.5);
@@ -56,7 +59,6 @@ function spawnEnemy() {
         enemies.add(enemy);
     }
 }
-
 
 function jump() {
     if (playerChar.body.touching.down) {
@@ -86,7 +88,7 @@ function playAnimations() {
 }
 
 function weaponSwitch(number) {
-    if (number != undefined) {
+    if (number != undefined && (ownedWeapons[number-1] == 1)) {
         currentWeaponID = number - 1;
         guns.frame = number - 1;
     }
@@ -149,10 +151,9 @@ function toggleMusic() {
     }
 }
 
-
 function timerHandler() {
     velocityVector += 0.1;
-    console.log(velocityVector);
+    //console.log(velocityVector);
 
 }
 
@@ -173,7 +174,6 @@ function changeLife(direction) {
     }
 
 }
-
 
 function hitPlayer() {
 
@@ -207,6 +207,36 @@ function blinkAnim() {
         blinkTimer.stop();
         blinkCounter = 0;
     }
+
+}
+
+function spawnWeaponDrop() {
+        var dropBox = weaponDropGroup.create(game.world.width, Math.random() * 550 + 200, 'dropBox');
+        dropBox.anchor.setTo(0.5, 0.5);
+        dropBox.body.moves = false;
+        weaponDropGroup.add(dropBox);
+        weaponSpawnTimer = Math.floor(Math.random() * (40)) + 10 ;
+}
+
+function dropWeapon() {
+    weaponDropped = true;
+    if(weaponDropped && !weaponWasDropped) {
+        var weaponTemp = Math.floor(Math.random() * (weapons.length-1)) +2 ;
+        console.log(weaponTemp);
+        ownedWeapons[weaponTemp-1] = 1;
+        weaponSwitch(weaponTemp);
+
+        weaponBreakTimer = game.time.create(true);
+        weaponBreakTimer.loop(Phaser.Timer.SECOND * 8, function e(){ breakWeapon(weaponTemp)}, this);
+        weaponBreakTimer.start();
+    }
+}
+
+function breakWeapon(weaponTemp) {
+    weaponBreakTimer.stop();
+    console.log("killed " + weaponTemp);
+    ownedWeapons[weaponTemp-1] = 0;
+    weaponSwitch(1);
 
 }
 

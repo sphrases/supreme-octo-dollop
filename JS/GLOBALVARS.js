@@ -31,6 +31,7 @@ var lastWeapon;
 var currentWeaponID;
 var bullets;
 
+var ownedWeapons = [];
 var weapons = [];
 var gameKeyboard;
 var key;
@@ -63,3 +64,9 @@ var liveChanged;
 var blinkTimer;
 var blinkCounter = 0;
 var blinkBool = true;
+var weaponDropTimer;
+var weaponDropGroup;
+var weaponBreakTimer;
+var weaponDropped = false;
+var weaponWasDropped;
+var weaponSpawnTimer;

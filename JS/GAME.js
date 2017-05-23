@@ -38,12 +38,13 @@ function preload() {
     game.load.audio('enemyHit', '../RES/audio/smallExplosion.mp3');
     game.load.audio('playJumpSound', '../RES/audio/YeahBoi/boi.mp3');
     game.load.audio('laserGunSound', '../RES/audio/laser.mp3');
-    game.load.audio('background_music', '../RES/audio/Pocketmaster.wav');
+    //game.load.audio('background_music', '../RES/audio/Pocketmaster.wav');
 
 
     //load enemies
     game.load.image('enemyBullet', '../RES/sprites/bullet2.png');
     game.load.spritesheet('invader', '../RES/sprites/ship2.png', 32, 32);
+    game.load.spritesheet('dropBox', '../RES/sprites/bulletBox.png', 32, 32);
     game.load.spritesheet('heart', '../RES/sprites/heart.png', 32, 32, 2);
 
 
@@ -121,10 +122,12 @@ function create() {
 
     //pistol
     createWeapon(weapon1, 30, 'bullet', 300, 600, 0, playBulletGunSound);
-    createWeapon(weapon2, 30, 'bullet', 500, 90, 7, playMachineGunSound);
+    createWeapon(weapon2, 30, 'bullet', 500, 90, 2, playMachineGunSound);
     createWeapon(weapon3, 3, 'beam', 1000, 300, 0, playLaserSound);
     createWeapon(weapon4, 40, 'beam', 1000, 30, 0, playLaserSound);
     createWeapon(weapon5, 40, 'dude', 1000, 100, 0, enemyHit);
+
+    ownedWeapons = [1, 0, 0, 0, 0];
     //createWeapon(weapon6, 1, 'piml', 700, 100, 0, playLaserSound);
 
     firstWeapon = 0;
@@ -137,20 +140,28 @@ function create() {
     enemies.enableBody = true;
     enemies.physicsBodyType = Phaser.Physics.ARCADE;
 
+    weaponDropGroup = game.add.group();
+    weaponDropGroup.enableBody = true;
+    weaponDropGroup.physicsBodyType = Phaser.Physics.ARCADE;
+
     gameKeyboard = game.input.Keyboard;
     cursors = game.input.keyboard.createCursorKeys();
     key = game.input.keyboard;
 
     // Background-Music
-    backgroundMusic = game.add.audio('background_music');
-    backgroundMusic.loop = true;
-    backgroundMusic.play();
+    //backgroundMusic = game.add.audio('background_music');
+    //backgroundMusic.loop = true;
+    //backgroundMusic.play();
     musicPlaying = true;
     velocityVector = 2;
 
     timer = game.time.create(false);
     timer.loop(10000, timerHandler, this);
     timer.start();
+    weaponSpawnTimer = 20;
+    weaponDropTimer = game.time.create(false);
+    weaponDropTimer.loop(Phaser.Timer.SECOND * 20, spawnWeaponDrop);
+    weaponDropTimer.start();
 
 
     livesCount = 3;
@@ -164,6 +175,7 @@ function update() {
     jumpwaspressed = jumppressed;
     jumppressed = cursors.up.isDown;
     liveWasChanged = liveChanged;
+    weaponWasDropped = weaponDropped;
 
     moveWorld(this.game);
     spawnEnemy();
@@ -179,7 +191,10 @@ function update() {
             game.physics.arcade.overlap(x.bullets, enemies, collisionHandler, null, this)
         });
     liveChanged = false;
+    weaponDropped = false;
+
     game.physics.arcade.overlap(enemies, playerChar, hitPlayer, null, this);
+    game.physics.arcade.overlap(weaponDropGroup, playerChar, dropWeapon, null, null);
 
 
 

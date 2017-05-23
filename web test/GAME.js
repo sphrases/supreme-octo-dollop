@@ -102,8 +102,11 @@ function spawnEnemy() {
     var enemy = enemyGroup.create(game.world.width / 2, game.world.height / 2, 'enemySprite');
 
     enemy.anchor.setTo(0.5, 0.5);
-    enemy.body.velocity.x = Math.floor(Math.random() * temp) - (temp/2);
-    enemy.body.velocity.y = Math.floor(Math.random() * temp) - (temp/2);
+    //enemy.body.velocity.x = Math.floor(Math.random() * temp) - (temp/2);
+    //enemy.body.velocity.y = Math.floor(Math.random() * temp) - (temp/2);
+    enemy.body.velocity.x = 1;
+    enemy.body.velocity.y = 1;
+
 
 }
 
