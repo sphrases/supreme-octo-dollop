@@ -110,7 +110,7 @@ function create() {
     playerChar.animations.add('jump', [3], 10, true);
     playerChar.animations.add('right', [5, 6], 7, true);
     playerChar.animations.add('hit', [6, 9], 7, true);
-   
+
 
     //WEAPONS!
     playBulletGunSound = game.add.audio('bulletGunSound');
