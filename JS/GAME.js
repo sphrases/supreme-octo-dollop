@@ -38,7 +38,6 @@ function preload() {
     game.load.audio('enemyHit', '../RES/audio/smallExplosion.mp3');
     game.load.audio('playJumpSound', '../RES/audio/YeahBoi/boi.mp3');
     game.load.audio('laserGunSound', '../RES/audio/laser.mp3');
-    game.load.audio('background_music', 'http://homepages.hs-bremen.de/~abenjamins/Pocketmaster.mp3');
 
 
     //load enemies
@@ -148,11 +147,8 @@ function create() {
     cursors = game.input.keyboard.createCursorKeys();
     key = game.input.keyboard;
 
-    // Background-Music
-    backgroundMusic = game.add.audio('background_music');
-    backgroundMusic.loop = true;
-    backgroundMusic.play();
-    musicPlaying = true;
+
+
     velocityVector = 2;
 
     timer = game.time.create(false);
@@ -165,6 +161,9 @@ function create() {
 
 
     livesCount = 3;
+
+    // Background-Music
+    loadMusic();
 }
 
 function update() {

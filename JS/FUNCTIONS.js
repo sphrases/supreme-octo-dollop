@@ -241,5 +241,14 @@ function breakWeapon(weaponTemp) {
 }
 
 
+function loadMusic() {
+    game.load.audio('background_music', 'http://homepages.hs-bremen.de/~abenjamins/Pocketmaster.mp3');
+    game.load.start();
+    backgroundMusic = game.add.audio('background_music');
+    backgroundMusic.loop = true;
+    backgroundMusic.play();
+    musicPlaying = true;
+}
+
 
 
