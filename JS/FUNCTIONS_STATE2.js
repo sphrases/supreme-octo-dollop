@@ -120,6 +120,18 @@ function readInput() {
         }
     }
 
+    if(game.input.activePointer.isDown){
+        if(game.input.activePointer.x<500) {
+            fireWeapon(weapons[currentWeaponID]);
+            button = "space";
+
+        }
+        if(game.input.activePointer.x>500) {
+            jump();
+            button = "UP";
+        }
+    }
+
 
     if (cursors.up.isDown) {
         jump();

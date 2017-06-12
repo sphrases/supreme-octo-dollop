@@ -13,6 +13,10 @@ var deagle;
 
 //STATE2_______________________________________________________
 
+
+
+var mouseBoundX;
+var mouseBoundY;
 var style = { font: "bold 40px Amatic Sc", fill: "#ffffff", align: "center"};
 
 var scoreText;

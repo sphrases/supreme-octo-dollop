@@ -185,7 +185,12 @@ var playState = {
         game.physics.arcade.collide(playerChar, platforms);
         currentWeapon = weapons[currentWeaponID];
         jumpwaspressed = jumppressed;
-        jumppressed = cursors.up.isDown;
+        if(cursors.up.isDown || (game.input.activePointer.x>500 && game.input.activePointer.isDown )) {
+            jumppressed = true;
+
+        } else {
+            jumppressed = false;
+        }
         liveWasChanged = liveChanged;
         weaponWasDropped = weaponDropped;
 
