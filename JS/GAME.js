@@ -38,7 +38,7 @@ function preload() {
     game.load.audio('enemyHit', '../RES/audio/smallExplosion.mp3');
     game.load.audio('playJumpSound', '../RES/audio/YeahBoi/boi.mp3');
     game.load.audio('laserGunSound', '../RES/audio/laser.mp3');
-    //game.load.audio('background_music', '../RES/audio/Pocketmaster.wav');
+    game.load.audio('background_music', '../RES/audio/Pocketmaster.wav');
 
 
     //load enemies
@@ -149,9 +149,9 @@ function create() {
     key = game.input.keyboard;
 
     // Background-Music
-    //backgroundMusic = game.add.audio('background_music');
-    //backgroundMusic.loop = true;
-    //backgroundMusic.play();
+    backgroundMusic = game.add.audio('background_music');
+    backgroundMusic.loop = true;
+    backgroundMusic.play();
     musicPlaying = true;
     velocityVector = 2;
 

@@ -47,7 +47,7 @@ function spawnEnemy() {
         time_til_spawn = Math.random() * 3000 + 2000;
         last_spawn_time = current_time;
 
-        enemy_height = Math.random() * 550 + 200;
+        enemy_height = Math.random() * 400 + 200;
 
         var enemy = enemies.create(game.world.width, enemy_height, 'invader');
         enemy.anchor.setTo(0.5, 0.5);
@@ -211,7 +211,7 @@ function blinkAnim() {
 }
 
 function spawnWeaponDrop() {
-        var dropBox = weaponDropGroup.create(game.world.width, Math.random() * 550 + 200, 'dropBox');
+        var dropBox = weaponDropGroup.create(game.world.width, Math.random() * 400 + 200, 'dropBox');
         dropBox.anchor.setTo(0.5, 0.5);
         dropBox.body.moves = false;
         weaponDropGroup.add(dropBox);
