@@ -7,4 +7,6 @@ function startGame() {
 
 }
 
-function startTutorial() {}
+function startTutorial() {
+    game.state.start('tutorialState');
+}

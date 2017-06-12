@@ -4,6 +4,6 @@
 
 function restartGame() {
     backgroundMusic.stop();
-    game.state.start('playState');
+    game.state.start('startMenu');
 
 }

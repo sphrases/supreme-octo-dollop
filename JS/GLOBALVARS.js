@@ -13,7 +13,8 @@ var deagle;
 
 //STATE2_______________________________________________________
 
-var style
+var style = { font: "bold 40px Amatic Sc", fill: "#ffffff", align: "center"};
+
 var scoreText;
 var score = 1;
 var wall0;
