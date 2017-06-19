@@ -38,7 +38,7 @@
       "density": 4.0
     }
   ],
-  "start_url": "https://sphrases.github.io/supreme-octo-dollop/HTML/game.html",
+  "start_url": "./HTML/game.html",
   "display": "standalone",
   "orientation": "landscape"
 }
