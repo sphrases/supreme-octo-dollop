@@ -39,8 +39,8 @@ var playState = {
 
         //load enemies
         game.load.spritesheet('enemy1', '../RES/STATE2/sprites/icons/enemy1.png', 64, 30, 4);
-        //game.load.spritesheet('spikes', '../RES/STATE2/sprites/icons/spikes.png', 32, 32, 3);
-
+        game.load.spritesheet('spikes', '../RES/STATE2/sprites/icons/spikes.png', 64, 30, 4);
+        game.load.spritesheet('spikes2', '../RES/STATE2/sprites/icons/spikes2.png', 64, 30, 4);
 
         game.load.spritesheet('dropBox', '../RES/STATE2/sprites/icons/bulletBox.png', 32, 32);
         game.load.spritesheet('heart', '../RES/STATE2/sprites/icons/heart.png', 32, 32, 2);
@@ -142,6 +142,10 @@ var playState = {
         enemies.enableBody = true;
         enemies.physicsBodyType = Phaser.Physics.ARCADE;
 
+        groundlings = game.add.group();
+        groundlings.enableBody = true;
+        groundlings.physicsBodyType = Phaser.Physics.ARCADE;
+
 
         weaponDropGroup = game.add.group();
         weaponDropGroup.enableBody = true;
@@ -198,6 +202,7 @@ var playState = {
 
         moveWorld(this.game);
         spawnEnemy();
+        spawnGroundling();
 
         readInput();
         playAnimations();
@@ -215,6 +220,7 @@ var playState = {
         liveChanged = false;
         weaponDropped = false;
 
+        game.physics.arcade.overlap(groundlings, playerChar, hitPlayer, null, this);
         game.physics.arcade.overlap(enemies, playerChar, hitPlayer, null, this);
         game.physics.arcade.overlap(weaponDropGroup, playerChar, dropWeapon, null, null);
 

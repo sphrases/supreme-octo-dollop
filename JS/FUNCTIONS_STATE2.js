@@ -51,13 +51,17 @@ function moveWorld(game) {
         enemy.position.x -= 2 * velocityVector + 2;
 
     });
+    groundlings.forEachAlive(function (g) {
+        g.position.x -= 2 * velocityVector;
+
+    });
 }
 
 function spawnEnemy() {
     var current_time = game.time.time;
     if (current_time - last_spawn_time > time_til_spawn) {
-        time_til_spawn = Math.random() * 3000 + 2000;
-        last_spawn_time = current_time;
+        time_til_spawn = (Math.random() * 3000 + 2000) - velocityVector ;
+        last_spawn_time = current_time ;
 
         enemy_height = Math.random() * 400 + 200;
 
@@ -72,6 +76,37 @@ function spawnEnemy() {
         enemies.add(enemy);
     }
 }
+
+
+function spawnGroundling() {
+    var current_time = game.time.time;
+    if (current_time - last_spawn_time_g > time_til_spawn_g) {
+        time_til_spawn_g = (Math.random() * 20000 + 8000) - velocityVector ;
+        last_spawn_time_g = current_time ;
+
+        groundling_height = 587;
+
+        var textureRandomizer = Math.random() * 5 + 1;
+
+        if (textureRandomizer < 3) {
+            var groundling = groundlings.create(game.world.width, groundling_height, 'spikes');
+        }   else {
+            var groundling = groundlings.create(game.world.width, groundling_height, 'spikes2');
+        }
+
+
+
+        groundling.anchor.setTo(0.5, 0.5);
+        groundling.rotation = 0;
+        groundling.scale.setTo(1.6, 1.6);
+        groundling.animations.add('move', [0, 1, 2, 3], 8, true);
+        groundling.play('move');
+        groundling.body.moves = false;
+
+        groundlings.add(groundling);
+    }
+}
+
 
 function jump() {
     if (playerChar.body.touching.down) {

@@ -36,6 +36,8 @@ var cursors;
 var enemies;
 var playerChar;
 var body;
+var groundlings;
+var groundling_height;
 
 var currentWeapon;
 var firstWeapon;
@@ -51,6 +53,7 @@ var key;
 
 
 var time_til_spawn = Math.random() * 3000 + 2000;  //Random time between 2 and 5 seconds.
+var time_til_spawn_g = Math.random() * 3000 + 2000;
 var enemy_height = Math.random() * 550 + 100;
 
 var backgroundMusic;
