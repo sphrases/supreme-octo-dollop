@@ -1,7 +1,7 @@
 
 //GAME_________________________________________________________
-var windowHeight = 700;
-var windowWidth = 1000;
+var windowHeight;
+var windowWidth;
 
 //STATE1_______________________________________________________
 var startGameButton;
