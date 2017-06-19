@@ -17,6 +17,11 @@ var playState = {
 
         game.load.image('ground', '../RES/STATE2/ground/ground.png');
 
+
+        //weapons
+        game.load.spritesheet('deagle', '../RES/STATE2/sprites/guns/deagle/deagle.png', 60, 40, 3);
+        game.load.spritesheet('ak', '../RES/STATE2/sprites/guns/ak/ak.png', 60, 40, 3);
+
         game.load.image('bullet', '../RES/STATE2/sprites/bullets/bullet2.png');
         game.load.image('beam', '../RES/STATE2/sprites/bullets/beam.png');
 
@@ -32,10 +37,11 @@ var playState = {
         game.load.audio('playJumpSound', '../RES/STATE2/audio/YeahBoi/boi.mp3');
         game.load.audio('laserGunSound', '../RES/STATE2/audio/laser.mp3');
 
-
         //load enemies
-        game.load.image('enemyBullet', '../RES/STATE2/sprites/bullets/bullet2.png');
-        game.load.spritesheet('invader', '../RES/STATE2/sprites/icons/ship2.png', 32, 32);
+        game.load.spritesheet('enemy1', '../RES/STATE2/sprites/icons/enemy1.png', 64, 30, 4);
+        //game.load.spritesheet('spikes', '../RES/STATE2/sprites/icons/spikes.png', 32, 32, 3);
+
+
         game.load.spritesheet('dropBox', '../RES/STATE2/sprites/icons/bulletBox.png', 32, 32);
         game.load.spritesheet('heart', '../RES/STATE2/sprites/icons/heart.png', 32, 32, 2);
     },
@@ -43,22 +49,16 @@ var playState = {
     create: function () {
         //Initializing the physix system
 
-        velocityVector = 4;
+        velocityVector = 2;
         jumps = 0;
         score = 1;
         lives = [];
         weapons = [];
-        ownedWeapons = [];
+        weaponSpriteGroup = [];
+        ownedWeapons = [1, 0, 0, 0, 0];
         timer = 0;
         blinkCounter = 0;
-
-
-
-
-
-
-
-
+        livesCount = 3;
 
 
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -74,7 +74,6 @@ var playState = {
 
         musicToggleButton = game.add.button(960, 0, 'musicSprite', toggleMusic, this, 0);
         musicToggleButton.scale.set(0.4, 0.4);
-
 
         //create lives
         livesCounter1 = game.add.sprite(10, 5, 'heart');
@@ -126,13 +125,12 @@ var playState = {
         playLaserSound = game.add.audio('laserGunSound');
 
         //pistol
-        createWeapon(weapon1, 30, 'bullet', 300, 600, 0, playBulletGunSound);
-        createWeapon(weapon2, 30, 'bullet', 500, 90, 2, playMachineGunSound);
-        createWeapon(weapon3, 3, 'beam', 1000, 300, 0, playLaserSound);
-        createWeapon(weapon4, 40, 'beam', 1000, 30, 0, playLaserSound);
-        createWeapon(weapon5, 40, 'dude', 1000, 100, 0, enemyHit);
+        createWeapon(weapon1, 30, 'bullet', 'deagle', 300, 600, 0, playBulletGunSound);
+        createWeapon(weapon2, 30, 'bullet','ak', 500, 90, 2, playMachineGunSound);
+        createWeapon(weapon3, 3, 'beam', 'deagle', 1000, 300, 0, playLaserSound);
+        createWeapon(weapon4, 40, 'beam', 'deagle', 1000, 30, 0, playLaserSound);
+        createWeapon(weapon5, 40, 'dude', 'deagle', 1000, 100, 0, enemyHit);
 
-        ownedWeapons = [1, 0, 0, 0, 0];
 
         firstWeapon = 0;
         lastWeapon = weapons.length - 1;
@@ -144,6 +142,7 @@ var playState = {
         enemies.enableBody = true;
         enemies.physicsBodyType = Phaser.Physics.ARCADE;
 
+
         weaponDropGroup = game.add.group();
         weaponDropGroup.enableBody = true;
         weaponDropGroup.physicsBodyType = Phaser.Physics.ARCADE;
@@ -153,7 +152,7 @@ var playState = {
         key = game.input.keyboard;
 
 
-        style = { font: "bold 40px Amatic Sc", fill: "#000000", align: "center" };
+        style = {font: "bold 40px Amatic Sc", fill: "#000000", align: "center"};
 
         scoreText = game.add.text(170, 5, "test", style);
         //scoreText.anchor.setTo(0.5, 0.5);
@@ -167,25 +166,24 @@ var playState = {
         weaponDropTimer.start();
 
 
-        livesCount = 3;
-
-
-
         // Background-Music
 
         backgroundMusic = game.add.audio('background_music');
         backgroundMusic.loop = true;
-        backgroundMusic.play();
-        musicPlaying = true;
+
+        if (musicPlaying) {
+            backgroundMusic.play();
+        }
 
 
     },
 
     update: function () {
         game.physics.arcade.collide(playerChar, platforms);
+
         currentWeapon = weapons[currentWeaponID];
         jumpwaspressed = jumppressed;
-        if(cursors.up.isDown || (game.input.activePointer.x>500 && game.input.activePointer.isDown )) {
+        if (cursors.up.isDown || (game.input.activePointer.x > 500 && game.input.activePointer.isDown )) {
             jumppressed = true;
 
         } else {
@@ -211,6 +209,9 @@ var playState = {
             function e(x) {
                 game.physics.arcade.overlap(x.bullets, enemies, collisionHandler, null, this)
             });
+
+
+
         liveChanged = false;
         weaponDropped = false;
 

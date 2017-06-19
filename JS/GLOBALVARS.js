@@ -41,7 +41,9 @@ var currentWeapon;
 var firstWeapon;
 var lastWeapon;
 var currentWeaponID;
+var currentWeaponSprite;
 
+var weaponSpriteGroup = [];
 var ownedWeapons = [];
 var weapons = [];
 var gameKeyboard;
@@ -52,7 +54,7 @@ var time_til_spawn = Math.random() * 3000 + 2000;  //Random time between 2 and 5
 var enemy_height = Math.random() * 550 + 100;
 
 var backgroundMusic;
-var musicPlaying;
+var musicPlaying = true;
 var musicToggleButton;
 var timer;
 

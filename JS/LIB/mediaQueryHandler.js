@@ -3,7 +3,7 @@
  */
 
 
-
+var mobileMode = false;
 var windowHeight = 700;
 var windowWidth = 1000;
 var scalingFactor = 1;
@@ -38,7 +38,9 @@ mq.addListener(function (changed) {
         windowWidth = window.innerWidth;
         scalingFactor = window.innerWidth/ 1000;
         $("#dispSize").html(windowWidth);
+
         // the width of browser is less then 500px
+
     }
 });
 

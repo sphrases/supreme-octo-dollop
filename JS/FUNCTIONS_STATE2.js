@@ -1,6 +1,14 @@
-function createWeapon(object, bullets, graphic, bulletSpeed, fireRate, angleVar, soundFunction, extraFunction) {
+function createWeapon(object, bullets, bulletGraphic, weaponSprite,  bulletSpeed, fireRate, angleVar, soundFunction, extraFunction) {
 
-    object = game.add.weapon(bullets, graphic);
+    var weapon = game.add.sprite(26, 16, weaponSprite);
+    weapon.animations.add('shoot', [0, 1, 2, 0], 15, false);
+    //weapony.trackSprite(playerChar, 93, 41);
+    weapon.anchor.setTo(0.5, 0.5);
+    weapon.scale.setTo(0.4*scalingFactor, 0.4*scalingFactor);
+    weapon.visible = false;
+    playerChar.addChild(weapon);
+
+    object = game.add.weapon(bullets, bulletGraphic);
     object.bulletSpeed = bulletSpeed;
     object.fireRate = fireRate;
     object.bulletAngleVariance = angleVar;
@@ -10,12 +18,15 @@ function createWeapon(object, bullets, graphic, bulletSpeed, fireRate, angleVar,
     object.trackSprite(playerChar, 93, 41);
     object.onFire.add(function e() {
         soundFunction.play()
+        weapon.play('shoot');
+
     });
 
     if (extraFunction != undefined) {
         object.extraFunction;
     }
     weapons.push(object);
+    weaponSpriteGroup.push(weapon);
 
 }
 
@@ -50,11 +61,12 @@ function spawnEnemy() {
 
         enemy_height = Math.random() * 400 + 200;
 
-        var enemy = enemies.create(game.world.width, enemy_height, 'invader');
+        var enemy = enemies.create(game.world.width, enemy_height, 'enemy1');
         enemy.anchor.setTo(0.5, 0.5);
-        enemy.rotation = 90;
-        //enemy.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-        //enemy.play('fly');
+        enemy.rotation = 0;
+        enemy.scale.setTo(1.6, 1.6);
+        enemy.animations.add('move', [0, 1, 2, 3], 8, true);
+        enemy.play('move');
         enemy.body.moves = false;
 
         enemies.add(enemy);
@@ -78,10 +90,11 @@ function jump() {
 }
 
 function playAnimations() {
+
     if (!playerChar.body.touching.down) {
         playerChar.play('jump');
 
-    }  else {
+    } else {
         playerChar.play('right');
     }
 
@@ -89,14 +102,19 @@ function playAnimations() {
 }
 
 function weaponSwitch(number) {
-    if (number != undefined && (ownedWeapons[number-1] == 1)) {
+    if (number != undefined && (ownedWeapons[number - 1] == 1)) {
         currentWeaponID = number - 1;
+
         guns.frame = number - 1;
+        //currentWeaponSprite = weaponSpriteGroup[number];
+        //currentWeaponSprite.visible = true;
+
     }
 }
 
-function fireWeapon(currentWeapon) {
+function fireWeapon(currentWeapon, currentWeaponSprite) {
     currentWeapon.fire();
+    currentWeaponSprite.play('shoot');
 
 
     //TODO add animations!
@@ -105,7 +123,7 @@ function fireWeapon(currentWeapon) {
 function readInput() {
     var button;
     if (key.isDown(Phaser.Keyboard.SPACEBAR)) {
-        fireWeapon(weapons[currentWeaponID]);
+        fireWeapon(weapons[currentWeaponID], weaponSpriteGroup[currentWeaponID]);
         button = "space";
 
     }
@@ -120,13 +138,13 @@ function readInput() {
         }
     }
 
-    if(game.input.activePointer.isDown){
-        if(game.input.activePointer.x<500) {
-            fireWeapon(weapons[currentWeaponID]);
+    if (game.input.activePointer.isDown) {
+        if (game.input.activePointer.x < 500) {
+            fireWeapon(weapons[currentWeaponID], weaponSpriteGroup[currentWeaponID]);
             button = "space";
 
         }
-        if(game.input.activePointer.x>500) {
+        if (game.input.activePointer.x > 500) {
             jump();
             button = "UP";
         }
@@ -220,7 +238,7 @@ function blinkAnim() {
     playerChar.alpha = blinkBool;
     blinkCounter++;
 
-    if(blinkCounter > 9) {
+    if (blinkCounter > 9) {
         blinkTimer.stop();
         blinkCounter = 0;
     }
@@ -232,19 +250,23 @@ function spawnWeaponDrop() {
     dropBox.anchor.setTo(0.5, 0.5);
     dropBox.body.moves = false;
     weaponDropGroup.add(dropBox);
-    weaponSpawnTimer = Math.floor(Math.random() * (40)) + 10 ;
+    weaponSpawnTimer = Math.floor(Math.random() * (40)) + 10;
 }
 
 function dropWeapon() {
+
     weaponDropped = true;
-    if(weaponDropped && !weaponWasDropped) {
-        var weaponTemp = Math.floor(Math.random() * (weapons.length-1)) +2 ;
+    if (weaponDropped && !weaponWasDropped) {
+        var weaponTemp = Math.floor(Math.random() * (weapons.length - 1)) + 2;
         console.log(weaponTemp);
-        ownedWeapons[weaponTemp-1] = 1;
+        ownedWeapons[weaponTemp - 1] = 1;
+
         weaponSwitch(weaponTemp);
         score += 20;
         weaponBreakTimer = game.time.create(true);
-        weaponBreakTimer.loop(Phaser.Timer.SECOND * 8, function e(){ breakWeapon(weaponTemp)}, this);
+        weaponBreakTimer.loop(Phaser.Timer.SECOND * 8, function e() {
+            breakWeapon(weaponTemp)
+        }, this);
         weaponBreakTimer.start();
     }
 }
@@ -252,7 +274,7 @@ function dropWeapon() {
 function breakWeapon(weaponTemp) {
     weaponBreakTimer.stop();
     console.log("killed " + weaponTemp);
-    ownedWeapons[weaponTemp-1] = 0;
+    ownedWeapons[weaponTemp - 1] = 0;
     weaponSwitch(1);
 
 }
