@@ -27,10 +27,10 @@ var wall2;
 var wall3;
 var wall4;
 
-var velocityVector = 1;
+var velocityVector;
 var weapon1, weapon2, weapon3, weapon4, weapon5, weapon6;
 
-var jumps = 0;
+var jumps;
 var jumpwaspressed = false;
 var jumppressed = false;
 var playJumpSound;
@@ -67,7 +67,7 @@ var liveWasChanged;
 var liveChanged;
 
 var blinkTimer;
-var blinkCounter = 0;
+var blinkCounter;
 var blinkBool = true;
 var weaponDropTimer;
 var weaponDropGroup;

@@ -43,13 +43,15 @@ var playState = {
     create: function () {
         //Initializing the physix system
 
-        velocityVector = 1;
+        velocityVector = 4;
         jumps = 0;
         score = 1;
         lives = [];
         weapons = [];
         ownedWeapons = [];
         timer = 0;
+        blinkCounter = 0;
+
 
 
 
@@ -155,8 +157,6 @@ var playState = {
 
         scoreText = game.add.text(170, 5, "test", style);
         //scoreText.anchor.setTo(0.5, 0.5);
-
-        velocityVector = 2;
 
         timer = game.time.create(false);
         timer.loop(10000, timerHandler, this);
