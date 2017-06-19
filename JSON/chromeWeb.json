@@ -38,7 +38,7 @@
       "density": 4.0
     }
   ],
-  "start_url": "./HTML/game.html",
+  "start_url": "./supreme-octo-dollop/HTML/game.html",
   "display": "standalone",
   "orientation": "landscape"
 }
