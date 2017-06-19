@@ -13,19 +13,25 @@ var startState = {
     },
     create: function () {
 
-        style = { font: "bold 40px Amatic Sc", fill: "#ffffff", align: "center"};
+        style = { font: "bold "+Math.floor(40 * scalingFactor)+"px Amatic Sc", fill: "#ffffff", align: "center"};
 
-        startScreenWall = game.add.tileSprite(0, 0, game.width, game.height, 'background');
+        startScreenWall = game.add.tileSprite(0, 0, windowWidth * scalingFactor, windowHeight * scalingFactor, 'background');
+        startScreenWall.scale.setTo(1 * scalingFactor, 1 * scalingFactor);
+
+
         startGameButton = game.add.button(game.width / 2 - 125, game.height / 2 - 80, 'startGameButtonSprite', startGame, this, 1, 0, 0);
         tutorialButton = game.add.button(game.width / 2 - 125, game.height / 2, 'tutorialButtonSprite', startTutorial, this, 1, 0, 0);
-        heart = game.add.sprite(350, 300, 'heart');
-        heart.scale.setTo(1.8, 1.8);
+
+        heart = game.add.sprite(game.width * 0.380, game.height * 0.435, 'heart');
+        heart.scale.setTo(1.8 * scalingFactor, 1.8 * scalingFactor);
+        heart.anchor.setTo(0.5, 0.5);
         heart.angle = -30;
         heart.animations.add('blink', [1, 0], 6, true);
         heart.animations.play('blink');
 
-        deagle = game.add.sprite(550, 270, 'deagle');
-        deagle.scale.setTo(2.5  , 2.5);
+        deagle = game.add.sprite(game.width * 0.650, game.height * 0.380, 'deagle');
+        deagle.scale.setTo(2.5 * scalingFactor  , 2.5 * scalingFactor);
+        deagle.anchor.setTo(0.5, 0.5);
         deagle.angle = -30;
         deagle.animations.add('shoot', [0, 1, 2], 8, true);
         deagle.animations.play('shoot');
@@ -47,22 +53,25 @@ var tutorialState = {
 
     },
     create: function () {
-        startScreenWall = game.add.tileSprite(0, 0, game.width, game.height, 'background');
-        heart = game.add.sprite(100, 300, 'heart');
-        heart.scale.setTo(1.8, 1.8);
+        startScreenWall = game.add.tileSprite(0, 0, game.width* scalingFactor, game.height * scalingFactor, 'background');
+
+        heart = game.add.sprite(game.width * 0.130, game.height * 0.370, 'heart');
+        heart.scale.setTo(1.8 * scalingFactor, 1.8 * scalingFactor);
+        heart.anchor.setTo(0.5, 0.5);
         heart.angle = -30;
         heart.animations.add('blink', [1, 0], 6, true);
         heart.animations.play('blink');
 
-        deagle = game.add.sprite(800, 270, 'deagle');
-        deagle.scale.setTo(2.5  , 2.5);
+        deagle = game.add.sprite(game.width * 0.800, game.height * 0.270, 'deagle');
+        deagle.scale.setTo(2.5 * scalingFactor, 2.5 * scalingFactor);
+        heart.anchor.setTo(0.5, 0.5);
         deagle.angle = -30;
         deagle.animations.add('shoot', [0, 1, 2], 8, true);
         deagle.animations.play('shoot');
 
 
 
-        style = { font: "bold 40px Amatic Sc", fill: "#ffffff", align: "center"};
+        style = { font: "bold "+Math.floor(40*scalingFactor )+"px Amatic Sc", fill: "#ffffff", align: "center"};
 
         tutorialText = "[space] -> shoot \n" +
             "[up] -> jump \n" +
@@ -71,7 +80,7 @@ var tutorialState = {
         tutText = game.add.text((game.width / 2 ), (game.height / 2  ), tutorialText, style);
         tutText.anchor.setTo(0.5, 0.5);
 
-        startGameButton = game.add.button(game.width / 2 - 125, game.height -200 , 'startGameButtonSprite', back, this, 1, 0, 0);
+        startGameButton = game.add.button(game.width / 2 - 125, game.height - 200 , 'startGameButtonSprite', back, this, 1, 0, 0);
 
         //tutText.setText("[space] -> shoot \n [up] -> jump \n weapons will drop randomly from supply crates");
 

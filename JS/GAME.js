@@ -1,3 +1,4 @@
+//mediaHandler();
 var game = new Phaser.Game(windowWidth, windowHeight, Phaser.AUTO, 'myPhaserID', {}, true, false);
 
 var last_spawn_time = game.time;
