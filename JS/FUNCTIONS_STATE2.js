@@ -323,7 +323,7 @@ function loadMusic() {
 
 function addEventListenerButton() {
 
-    document.getElementById('shootButton').addEventListener('click', shootMan, false);
+    document.getElementById('shootButton').addEventListener('onDown', shootMan, false);
     document.getElementById('jumpButton').addEventListener('click', jumpMan, false);
 
     //$('.jumpButton').click(function e() {jumpMan;});
