@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8de4b409-b201-4b15-8fee-2122f4d187c9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="8de4b409-b201-4b15-8fee-2122f4d187c9" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -521,7 +519,7 @@
       <workItem from="1497961556698" duration="5682000" />
       <workItem from="1498036903032" duration="1828000" />
       <workItem from="1498039546195" duration="1104000" />
-      <workItem from="1498073387029" duration="1860000" />
+      <workItem from="1498073387029" duration="1948000" />
     </task>
     <task id="LOCAL-00001" summary="Added Some struffz">
       <created>1497867060906</created>
@@ -618,7 +616,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97354000" />
+    <option name="totallyTimeSpent" value="97442000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -630,7 +628,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="2582" height="1402" extended-state="6" />
+    <frame x="-11" y="-11" width="2582" height="1402" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10039063" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
