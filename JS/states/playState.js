@@ -36,6 +36,7 @@ var playState = {
         game.load.audio('enemyHit', '../RES/STATE2/audio/smallExplosion.mp3');
         game.load.audio('playJumpSound', '../RES/STATE2/audio/YeahBoi/boi.mp3');
         game.load.audio('laserGunSound', '../RES/STATE2/audio/laser.mp3');
+        game.load.audio('blinkSound', '../RES/STATE2/audio/blinkSound.mp3');
 
         //load enemies
         game.load.spritesheet('enemy1', '../RES/STATE2/sprites/icons/enemy1.png', 64, 30, 4);
@@ -115,6 +116,8 @@ var playState = {
         playerChar.animations.add('jump', [3], 10, true);
         playerChar.animations.add('right', [5, 6], 7, true);
         playerChar.animations.add('hit', [6, 9], 7, true);
+
+        blinkSound = game.add.audio('blinkSound');
 
 
         //WEAPONS!

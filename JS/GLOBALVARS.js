@@ -12,7 +12,7 @@ var deagle;
 //STATE2_______________________________________________________
 
 
-
+var blinkSound;
 var mouseBoundX;
 var mouseBoundY;
 var style = { font: "bold 40px Amatic Sc", fill: "#ffffff", align: "center"};

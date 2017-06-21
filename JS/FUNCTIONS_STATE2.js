@@ -77,7 +77,6 @@ function spawnEnemy() {
     }
 }
 
-
 function spawnGroundling() {
     var current_time = game.time.time;
     if (current_time - last_spawn_time_g > time_til_spawn_g) {
@@ -106,7 +105,6 @@ function spawnGroundling() {
         groundlings.add(groundling);
     }
 }
-
 
 function jump() {
     if (playerChar.body.touching.down) {
@@ -264,6 +262,7 @@ function hitPlayer() {
 
 function playerBlink() {
     blinkTimer = game.time.create(false);
+    blinkSound.play();
     blinkTimer.loop(100, blinkAnim, this);
     blinkTimer.start();
 }
@@ -316,7 +315,6 @@ function breakWeapon(weaponTemp) {
 
 }
 
-
 function loadMusic() {
 
 }
@@ -335,7 +333,6 @@ function shootMan()  {
     fireWeapon(weapons[currentWeaponID], weaponSpriteGroup[currentWeaponID]);
 
 }
-
 
 function jumpMan() {
 
