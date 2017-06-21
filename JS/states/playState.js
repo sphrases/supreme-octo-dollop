@@ -179,6 +179,9 @@ var playState = {
             backgroundMusic.play();
         }
 
+        addEventListenerButton();
+
+
 
     },
 
@@ -228,4 +231,6 @@ var playState = {
     }
 
 }
+
+
 

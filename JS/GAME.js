@@ -8,11 +8,14 @@ game.state.add('startMenu', startState);
 game.state.add('playState', playState);
 game.state.add('gameOverState', gameOverState);
 game.state.add('tutorialState', tutorialState);
+
 game.state.start('startMenu');
 
 
 
 
+var jumpVar = false;
+var shootVar = false;
 
 
 

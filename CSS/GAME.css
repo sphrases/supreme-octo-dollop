@@ -10,8 +10,8 @@ body {
 
 canvas {
     margin: 0px auto;
-    margin-top: 3%;
-
+    padding-bottom: 10px;
+    padding-top: 0px;
 }
 
 
@@ -20,4 +20,42 @@ canvas {
         width: 100%;
         height: 100%;
     }
+}
+
+#shootButton {
+    margin: auto;
+    margin-bottom: 0px;
+    border: none;
+    background-color: #42c4c7;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:30px;
+    padding:200px 200px;
+    text-decoration:none
+}
+
+
+#jumpButton {
+    margin: auto;
+    margin-bottom: 0px;
+    border: none;
+    background-color: #42c4c7;
+    display:inline-block;
+    cursor:pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size:30px;
+    padding:200px 200px;
+    text-decoration:none
+}
+
+
+#buttons {
+
+    margin: 0px auto;
+    display: block;
+    margin-top: 0px;
+
 }

@@ -174,13 +174,15 @@ function readInput() {
     }
 
     if (game.input.activePointer.isDown) {
-        if (game.input.activePointer.x < 500) {
+        if (game.input.activePointer.x < 500 || shootVar) {
             fireWeapon(weapons[currentWeaponID], weaponSpriteGroup[currentWeaponID]);
+            shootVar = false;
             button = "space";
 
         }
-        if (game.input.activePointer.x > 500) {
+        if (game.input.activePointer.x > 500 || jumpVar) {
             jump();
+            shootVar = false;
             button = "UP";
         }
     }
@@ -319,5 +321,27 @@ function loadMusic() {
 
 }
 
+function addEventListenerButton() {
+
+    document.getElementById('shootButton').addEventListener('click', shootMan, false);
+    document.getElementById('jumpButton').addEventListener('click', jumpMan, false);
+
+    //$('.jumpButton').click(function e() {jumpMan;});
+
+}
+
+function shootMan()  {
+
+    fireWeapon(weapons[currentWeaponID], weaponSpriteGroup[currentWeaponID]);
+
+}
+
+
+function jumpMan() {
+
+    jumppressed = true;
+    jump();
+
+}
 
 
