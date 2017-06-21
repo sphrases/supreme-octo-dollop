@@ -14,13 +14,6 @@ canvas {
 
 }
 
-#buttonDiv {
-    display: block;
-
-    text-align: center;
-    margin: auto;
-    margin-top: 0;
-}
 
 .font {
     font-family: 'Amatic SC', cursive;
@@ -30,33 +23,35 @@ canvas {
     padding: 0;
 }
 
-#tutorial {
-    display: block;
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    margin-top: 5px;
-    margin-left: 5px;
-
-}
-
-#tutorial-heading {
-    font-size: 50px;
-}
-
-#tutorial-text {
-    font-size: 40px;
-}
-
-
 
 #heading {
-    font-size: 200px;
+    font-size: 100px;
     text-align: center;
     margin: auto;
     padding: 0;
     margin-top: 15%;
     margin-bottom: 0;
+}
+
+p {
+    font-size: 40px;
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    margin-top: 0px;
+    margin-bottom: 0;
+    color: #ffffff;
+
+}
+
+
+.buttonDiv {
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-top: 0;
+
 }
 
 
