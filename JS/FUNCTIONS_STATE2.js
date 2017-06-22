@@ -221,7 +221,7 @@ function toggleMusic() {
 }
 
 function timerHandler() {
-    velocityVector += 0.1;
+    velocityVector += 0.3;
     //console.log(velocityVector);
 
 }
