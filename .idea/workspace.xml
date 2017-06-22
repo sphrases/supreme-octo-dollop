@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8de4b409-b201-4b15-8fee-2122f4d187c9" name="Default" comment="">
+    <list default="true" id="8de4b409-b201-4b15-8fee-2122f4d187c9" name="Default" comment="(maybe) really last push">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS/FUNCTIONS_STATE2.js" afterPath="$PROJECT_DIR$/JS/FUNCTIONS_STATE2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS/states/playState.js" afterPath="$PROJECT_DIR$/JS/states/playState.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -99,8 +99,8 @@
           <file leaf-file-name="playState.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/JS/states/playState.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="153" column="30" lean-forward="false" selection-start-line="153" selection-start-column="30" selection-end-line="153" selection-end-column="30" />
+                <state relative-caret-position="777">
+                  <caret line="184" column="10" lean-forward="false" selection-start-line="184" selection-start-column="10" selection-end-line="184" selection-end-column="10" />
                   <folding>
                     <element signature="e#0#42#0" expanded="false" />
                   </folding>
@@ -166,9 +166,9 @@
         <option value="$PROJECT_DIR$/HTML/game.html" />
         <option value="$PROJECT_DIR$/CSS/INDEX.css" />
         <option value="$PROJECT_DIR$/JS/GLOBALVARS.js" />
-        <option value="$PROJECT_DIR$/JS/states/playState.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/JS/FUNCTIONS_STATE2.js" />
+        <option value="$PROJECT_DIR$/JS/states/playState.js" />
       </list>
     </option>
   </component>
@@ -410,7 +410,7 @@
       <workItem from="1498036903032" duration="1828000" />
       <workItem from="1498039546195" duration="1104000" />
       <workItem from="1498073387029" duration="2335000" />
-      <workItem from="1498111083209" duration="1082000" />
+      <workItem from="1498111083209" duration="1238000" />
     </task>
     <task id="LOCAL-00001" summary="Added Some struffz">
       <created>1497867060906</created>
@@ -510,11 +510,18 @@
       <option name="project" value="LOCAL" />
       <updated>1498111270836</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="(maybe) really last push">
+      <created>1498112185960</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1498112185960</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98911000" />
+    <option name="totallyTimeSpent" value="99067000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -633,7 +640,8 @@
     <MESSAGE value="removed GameBoiii Like Controls" />
     <MESSAGE value="Added Hit Sound" />
     <MESSAGE value="(maybe) last push" />
-    <option name="LAST_COMMIT_MESSAGE" value="(maybe) last push" />
+    <MESSAGE value="(maybe) really last push" />
+    <option name="LAST_COMMIT_MESSAGE" value="(maybe) really last push" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -969,8 +977,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JS/states/playState.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="153" column="30" lean-forward="false" selection-start-line="153" selection-start-column="30" selection-end-line="153" selection-end-column="30" />
+        <state relative-caret-position="777">
+          <caret line="184" column="10" lean-forward="false" selection-start-line="184" selection-start-column="10" selection-end-line="184" selection-end-column="10" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
           </folding>
