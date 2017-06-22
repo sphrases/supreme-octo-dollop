@@ -342,3 +342,9 @@ function jumpMan() {
 }
 
 
+function godMode() {
+
+    ownedWeapons = [1, 1, 1, 1, 1];
+
+}
+
