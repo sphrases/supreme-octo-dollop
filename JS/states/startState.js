@@ -3,11 +3,11 @@
  */
 var startState = {
     preload: function () {
-        game.load.image("background", "../RES/STAGE1/bg/background.png");
-        game.load.spritesheet("startGameButtonSprite", "../RES/STAGE1/icons/startGameButton.png", 250, 70);
-        game.load.spritesheet("tutorialButtonSprite", "../RES/STAGE1/icons/tutorialButton.png", 250, 70);
-        game.load.spritesheet("heart", "../RES/STAGE1/icons/heart.png", 32, 32);
-        game.load.spritesheet("deagle", "../RES/STAGE1/icons/deagleSpritesheet.png", 60, 40);
+        game.load.image("background", "../RES/STATE1/bg/background.png");
+        game.load.spritesheet("startGameButtonSprite", "../RES/STATE1/icons/startGameButton.png", 250, 70);
+        game.load.spritesheet("tutorialButtonSprite", "../RES/STATE1/icons/tutorialButton.png", 250, 70);
+        game.load.spritesheet("heart", "../RES/STATE1/icons/heart.png", 32, 32);
+        game.load.spritesheet("deagle", "../RES/STATE1/icons/deagleSpritesheet.png", 60, 40);
 
 
     },
