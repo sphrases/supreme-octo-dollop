@@ -8,28 +8,15 @@ body {
     background-color: #ff7141;
 }
 
-canvas {
-    margin: 0px auto;
-    margin-top: 3%;
-
-}
-
-
-.font {
+#heading {
     font-family: 'Amatic SC', cursive;
     color: #ffffff;
     display: block;
-    margin: 0;
-    padding: 0;
-}
-
-
-#heading {
-    font-size: 100px;
+    font-size: 130px;
     text-align: center;
     margin: auto;
     padding: 0;
-    margin-top: 15%;
+    margin-top: 5%;
     margin-bottom: 0;
 }
 
@@ -64,6 +51,7 @@ p {
     font-size:17px;
     padding:16px 31px;
     text-decoration:none;
+    width: 68px;
 }
 .myButton:hover {
     background-color: #43a3c7;
@@ -73,3 +61,17 @@ p {
     top:1px;
 }
 
+#infoTextBox {
+
+    padding: 10px;
+    font-family: "Arial Narrow";
+    font-size: 30px;
+    margin: auto;
+    margin-top: 10px;
+    display: block;
+    color: #ffffff;
+    width: 500px;
+/ / height: 200 px;
+    border: 5px solid #42c4c7;
+
+}

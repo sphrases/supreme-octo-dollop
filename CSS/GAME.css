@@ -8,13 +8,14 @@ body {
     background-color: #ff7141;
 }
 
+/* formats the games canvas ()*/
 canvas {
     margin: 0px auto;
     padding-bottom: 10px;
     padding-top: 0px;
 }
 
-
+/*  This is a test(responsive)  */
 @media only screen and (min-width: 680px) {
     canvas {
         width: 100%;
