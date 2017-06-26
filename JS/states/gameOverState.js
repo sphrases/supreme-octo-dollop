@@ -5,9 +5,10 @@ var gameOverState = {
     preload: function () {
         game.load.image("background", "../RES/STATE3/bg/background.png");
         game.load.spritesheet("startGameButtonSprite", "../RES/STATE3/icons/restartButton.png", 250, 70);
-        game.load.spritesheet("tutorialButtonSprite", "../RES/STAGE1/icons/tutorialButton.png", 250, 70);
-        game.load.spritesheet("heart", "../RES/STAGE1/icons/heart.png", 32, 32);
-        game.load.spritesheet("deagle", "../RES/STAGE1/icons/deagleSpritesheet.png", 60, 40);
+        game.load.spritesheet("tutorialButtonSprite", "../RES/STATE1/icons/tutorialButton.png", 250, 70);
+        game.load.spritesheet("tweetButtonSprite", "../RES/STATE3/icons/tweetButton.png", 250, 70);
+        game.load.spritesheet("heart", "../RES/STATE1/icons/heart.png", 32, 32);
+        game.load.spritesheet("deagle", "../RES/STATE1/icons/deagleSpritesheet.png", 60, 40);
 
         game.load.image("bgLvl0", "../RES/STATE3/bg/layer0.png");
         game.load.image("bgLvl1", "../RES/STATE3/bg/layer1.png");
@@ -29,6 +30,8 @@ var gameOverState = {
         wall4 = game.add.tileSprite(0, 0, game.width, game.height, "bgLvl4");
         endScreenWall = game.add.tileSprite(0, 0, game.width, game.height, 'background');
         startGameButton = game.add.button(game.width / 2 - 125, game.height / 2 , 'startGameButtonSprite', restartGame, this, 1, 0, 0);
+        tweetScoreButton = game.add.button(game.width / 2 - 125, game.height / 2 + 100, 'tweetButtonSprite', tweetScore, this, 1, 0, 0);
+
 
 
         style = { font: "bold 40px Amatic Sc", fill: "#ffffff", align: "center"};

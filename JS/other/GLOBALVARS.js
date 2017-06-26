@@ -83,3 +83,4 @@ var weaponSpawnTimer;
 //STATE3_______________________________________________________
 
 
+var tweetScoreButton;
