@@ -16,7 +16,7 @@ var playState = {
 
         style = {font: "bold 40px Arial", fill: "#ffffff", align: "center"};
 
-        var loadingText = game.add.text(game.width / 2, game.height / 2 - 30, "Loading...", style);
+        var loadingText = game.add.text(game.width / 2, game.height / 2 - 15, "Loading...", style);
 
         //loading the backgrounds
         game.load.image("bgLvl0", "../RES/STATE2/bg/layer0.png");
