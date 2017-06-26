@@ -7,7 +7,7 @@ var playState = {
         game.load.spritesheet('heart', '../RES/STATE2/sprites/icons/heart.png', 32, 32, 2);
 
 
-        var loadingHeart = game.add.sprite(game.width / 2 - 100, game.height / 2, 'heart');
+        var loadingHeart = game.add.sprite(game.width / 2 - 60, game.height / 2, 'heart');
         loadingHeart.scale.setTo(1.8 * scalingFactor, 1.8 * scalingFactor);
         loadingHeart.anchor.setTo(0.5, 0.5);
         loadingHeart.animations.add('blink', [1, 0], 6, true);
@@ -16,7 +16,7 @@ var playState = {
 
         style = {font: "bold 40px Arial", fill: "#ffffff", align: "center"};
 
-        var loadingText = game.add.text(game.width / 2, game.height / 2 - 10, "Loading...", style);
+        var loadingText = game.add.text(game.width / 2, game.height / 2 - 30, "Loading...", style);
 
         //loading the backgrounds
         game.load.image("bgLvl0", "../RES/STATE2/bg/layer0.png");
