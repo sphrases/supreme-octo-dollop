@@ -60,7 +60,7 @@ function moveWorld(game) {
 function spawnEnemy() {
     var current_time = game.time.time;
     if (current_time - last_spawn_time > time_til_spawn) {
-        time_til_spawn = (Math.random() * 3000 + 2000) - velocityVector ;
+        time_til_spawn = (Math.random() * 3000 + 1000) - (velocityVector * 100);
         last_spawn_time = current_time ;
 
         enemy_height = Math.random() * 400 + 200;

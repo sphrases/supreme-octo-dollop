@@ -48,6 +48,21 @@ var playState = {
     },
 
     create: function () {
+
+
+        var loadingHeart = game.add.sprite(game.width / 2 - 100, game.height / 2, 'heart');
+        loadingHeart.scale.setTo(1.8 * scalingFactor, 1.8 * scalingFactor);
+        loadingHeart.anchor.setTo(0.5, 0.5);
+        loadingHeart.animations.add('blink', [1, 0], 6, true);
+        loadingHeart.animations.play('blink');
+
+
+        style = {font: "bold 40px Amatic Sc", fill: "#000000", align: "center"};
+
+        var loadingText = game.add.text(game.width / 2, game.height / 2, "Loading...", style);
+
+
+
         //Initializing the physix system
 
         velocityVector = 2;
