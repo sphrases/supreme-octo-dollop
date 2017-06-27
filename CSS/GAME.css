@@ -23,40 +23,26 @@ canvas {
     }
 }
 
-#shootButton {
-    margin: auto;
-    margin-bottom: 0px;
-    border: none;
-    background-color: #42c4c7;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:30px;
-    padding:200px 200px;
-    text-decoration:none
-}
 
-
-#jumpButton {
-    margin: auto;
-    margin-bottom: 0px;
-    border: none;
+.myButton {
     background-color: #42c4c7;
-    display:inline-block;
-    cursor:pointer;
+    display: inline-block;
+    cursor: pointer;
     color: #ffffff;
-    font-family: Arial;
-    font-size:30px;
-    padding:200px 200px;
-    text-decoration:none
+    font-family: Corbel;
+    font-size: 19px;
+    padding:16px 31px;
+    text-decoration:none;
+    margin: 10px;
+    opacity: 0.2;
+
 }
-
-
-#buttons {
-
-    margin: 0px auto;
-    display: block;
-    margin-top: 0px;
-
+.myButton:hover {
+    opacity: 1;
+    background-color: #43a3c7;
+}
+.myButton:active {
+    opacity: 1;
+    position:relative;
+    top:1px;
 }
