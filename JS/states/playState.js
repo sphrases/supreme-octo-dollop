@@ -14,7 +14,7 @@ var playState = {
         loadingHeart.animations.play('blink');
 
 
-        style = {font: "bold 40px Arial", fill: "#ffffff", align: "center"};
+        style = {font: "bold 40px Corbel", fill: "#ffffff", align: "center"};
 
         var loadingText = game.add.text(game.width / 2, game.height / 2 - 15, "Loading...", style);
 

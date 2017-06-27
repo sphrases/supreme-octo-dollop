@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8de4b409-b201-4b15-8fee-2122f4d187c9" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_config.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/diagram.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CSS/INDEX.css" afterPath="$PROJECT_DIR$/CSS/INDEX.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS/states/playState.js" afterPath="$PROJECT_DIR$/JS/states/playState.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,63 +31,14 @@
     <favorites_list name="supreme-octo-dollop" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.2892408">
+    <splitter split-orientation="horizontal" split-proportion="0.50116444">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="393">
-                  <caret line="39" column="18" lean-forward="true" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="19" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="playStateFunctions.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/JS/states/stateFunctions/playStateFunctions.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="288">
-                  <caret line="38" column="1" lean-forward="true" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
-                  <folding>
-                    <element signature="n#!!block;n#createWeapon#0" expanded="false" />
-                    <element signature="n#!!block;n#spawnGroundling#0" expanded="false" />
-                    <element signature="n#!!block;n#jump#0" expanded="false" />
-                    <element signature="n#!!block;n#playAnimations#0" expanded="false" />
-                    <element signature="n#!!block;n#weaponSwitch#0" expanded="false" />
-                    <element signature="n#!!block;n#fireWeapon#0" expanded="false" />
-                    <element signature="n#!!block;n#readInput#0" expanded="false" />
-                    <element signature="n#!!block;n#toggleMusic#0" expanded="false" />
-                    <element signature="n#!!block;n#changeLife#0" expanded="false" />
-                    <element signature="n#!!block;n#hitPlayer#0" expanded="false" />
-                    <element signature="n#!!block;n#blinkAnim#0" expanded="false" />
-                    <element signature="n#!!block;n#spawnWeaponDrop#0" expanded="false" />
-                    <element signature="n#!!block;n#dropWeapon#0" expanded="false" />
-                    <element signature="n#!!block;n#breakWeapon#0" expanded="false" />
-                    <element signature="n#!!block;n#loadMusic#0" expanded="false" />
-                    <element signature="n#!!block;n#addEventListenerButton#0" expanded="false" />
-                    <element signature="n#!!block;n#shootMan#0" expanded="false" />
-                    <element signature="n#!!block;n#jumpMan#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="startStateFunctions.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/JS/states/stateFunctions/startStateFunctions.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="startState.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/JS/states/startState.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="648">
-                  <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="29" selection-end-column="39" />
+                <state relative-caret-position="612">
+                  <caret line="27" column="6" lean-forward="true" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
                   <folding />
                 </state>
               </provider>
@@ -93,23 +48,13 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-          <file leaf-file-name="gameOverStareFunctions.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/JS/states/stateFunctions/gameOverStareFunctions.js">
+          <file leaf-file-name="INDEX.css" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/CSS/INDEX.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="396">
-                  <caret line="11" column="205" lean-forward="false" selection-start-line="11" selection-start-column="205" selection-end-line="11" selection-end-column="205" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="playState.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/JS/states/playState.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="18" column="76" lean-forward="false" selection-start-line="18" selection-start-column="76" selection-end-line="18" selection-end-column="76" />
+                <state relative-caret-position="501">
+                  <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
                   <folding>
-                    <element signature="e#0#42#0" expanded="false" />
+                    <marker date="1498563170495" expanded="true" signature="646:648" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -170,15 +115,15 @@
         <option value="$PROJECT_DIR$/JS/FUNCTIONS_STATE2.js" />
         <option value="$PROJECT_DIR$/JS/states/startState.js" />
         <option value="$PROJECT_DIR$/CSS/GAME.css" />
-        <option value="$PROJECT_DIR$/CSS/INDEX.css" />
         <option value="$PROJECT_DIR$/HTML/game.html" />
         <option value="$PROJECT_DIR$/JS/other/GLOBALVARS.js" />
         <option value="$PROJECT_DIR$/JS/states/stateFunctions/gameOverStareFunctions.js" />
         <option value="$PROJECT_DIR$/JS/states/gameOverState.js" />
         <option value="$PROJECT_DIR$/JSON/chromeWeb.json" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/JS/states/stateFunctions/playStateFunctions.js" />
         <option value="$PROJECT_DIR$/JS/states/playState.js" />
+        <option value="$PROJECT_DIR$/CSS/INDEX.css" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -633,7 +578,6 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107208000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -951,17 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2232">
           <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CSS/INDEX.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="60" column="12" lean-forward="true" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
-          <folding>
-            <marker date="1498507371624" expanded="true" signature="583:585" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -985,7 +918,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="519">
           <caret line="29" column="17" lean-forward="false" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -993,7 +925,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="977">
           <caret line="85" column="21" lean-forward="false" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1015,7 +946,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JS/states/startState.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
+        <state relative-caret-position="864">
           <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="29" selection-end-column="39" />
           <folding />
         </state>
@@ -1032,7 +963,7 @@
     <entry file="file://$PROJECT_DIR$/JS/states/stateFunctions/playStateFunctions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
-          <caret line="38" column="1" lean-forward="true" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
+          <caret line="38" column="1" lean-forward="false" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
           <folding>
             <element signature="n#!!block;n#createWeapon#0" expanded="false" />
             <element signature="n#!!block;n#spawnGroundling#0" expanded="false" />
@@ -1056,21 +987,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="39" column="18" lean-forward="true" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JS/states/playState.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="18" column="76" lean-forward="false" selection-start-line="18" selection-start-column="76" selection-end-line="18" selection-end-column="76" />
+        <state relative-caret-position="468">
+          <caret line="16" column="40" lean-forward="false" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSS/INDEX.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+          <folding>
+            <marker date="1498563170495" expanded="true" signature="646:648" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="27" column="6" lean-forward="true" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>

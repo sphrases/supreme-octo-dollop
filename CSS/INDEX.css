@@ -12,23 +12,25 @@ body {
     font-family: 'Amatic SC', cursive;
     color: #ffffff;
     display: block;
-    font-size: 130px;
+    font-size: 300px;
     text-align: center;
     margin: auto;
-    padding: 0;
-    margin-top: 5%;
-    margin-bottom: 0;
+    padding: 0px;
+    margin-top: -50px;
+    margin-bottom: -70px;
+    //border: 5px solid;
 }
 
 p {
-    font-size: 40px;
+    font-size: 60px;
     font-family: 'Amatic SC', cursive;
     text-align: center;
     margin: auto;
-    padding: 0;
+    padding: 0px;
     margin-top: 0px;
-    margin-bottom: 0;
+    margin-bottom: 0px;
     color: #ffffff;
+    //border: 5px solid;
 
 }
 
@@ -44,11 +46,11 @@ p {
 
 .myButton {
     background-color: #42c4c7;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:17px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Corbel;
+    font-size: 19px;
     padding:16px 31px;
     text-decoration:none;
     width: 68px;
@@ -64,7 +66,7 @@ p {
 #infoTextBox {
 
     padding: 10px;
-    font-family: "Arial Narrow";
+    font-family: "Corbel";
     font-size: 30px;
     margin: auto;
     margin-top: 10px;
