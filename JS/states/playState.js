@@ -2,55 +2,54 @@
  * Created by sphra on 12.06.2017.
  */
 var playState = {
+    /**
+     * Loads files that are needed to play the Game
+     **/
     preload: function () {
-
+        //Loading Animation and Text
         game.load.spritesheet('heart', '../RES/STATE2/sprites/icons/heart.png', 32, 32, 2);
-
-
+            //loading Heart
         var loadingHeart = game.add.sprite(game.width / 2 - 60, game.height / 2, 'heart');
         loadingHeart.scale.setTo(1.8 * scalingFactor, 1.8 * scalingFactor);
         loadingHeart.anchor.setTo(0.5, 0.5);
+            //creating animation
         loadingHeart.animations.add('blink', [1, 0], 6, true);
+            //playing animation
         loadingHeart.animations.play('blink');
-
-
         style = {font: "bold 40px Corbel", fill: "#ffffff", align: "center"};
-
         var loadingText = game.add.text(game.width / 2, game.height / 2 - 15, "Loading...", style);
 
-        //loading the backgrounds
+        //loading the background layers
         game.load.image("bgLvl0", "../RES/STATE2/bg/layer0.png");
         game.load.image("bgLvl1", "../RES/STATE2/bg/layer1.png");
         game.load.image("bgLvl2", "../RES/STATE2/bg/layer2.png");
         game.load.image("bgLvl3", "../RES/STATE2/bg/layer3.png");
         game.load.image("bgLvl4", "../RES/STATE2/bg/layer4.png");
 
-
         //loading the players spritesheet
         game.load.spritesheet('dude', '../RES/STATE2/dude.png', 32, 48);
         game.load.spritesheet('guns', '../RES/STATE2/guns.png', 32, 48);
 
+        //loadin Ground spritesheet
         game.load.image('ground', '../RES/STATE2/ground/ground.png');
 
 
         //weapons
         game.load.spritesheet('deagle', '../RES/STATE2/sprites/guns/deagle/deagle.png', 60, 40, 3);
         game.load.spritesheet('ak', '../RES/STATE2/sprites/guns/ak/ak.png', 60, 40, 3);
-
         game.load.image('bullet', '../RES/STATE2/sprites/bullets/bullet2.png');
         game.load.image('beam', '../RES/STATE2/sprites/bullets/beam.png');
-
-
-        game.load.spritesheet('musicSprite', '../RES/STATE2/sprites/icons/music_sprite.png', 100, 100);
-
-        //load sounds
-        game.load.audio('background_music', '../RES/STATE2/audio/Pocketmaster.mp3');
-
+        game.load.audio('laserGunSound', '../RES/STATE2/audio/laser.mp3');
         game.load.audio('bulletGunSound', '../RES/STATE2/audio/pew.wav');
         game.load.audio('machineGunSound', '../RES/STATE2/audio/machineGun.mp3');
+
+        //music
+        game.load.spritesheet('musicSprite', '../RES/STATE2/sprites/icons/music_sprite.png', 100, 100);
+        game.load.audio('background_music', '../RES/STATE2/audio/Pocketmaster.mp3');
+
+        //load sounds
         game.load.audio('enemyHit', '../RES/STATE2/audio/smallExplosion.mp3');
         game.load.audio('playJumpSound', '../RES/STATE2/audio/YeahBoi/boi.mp3');
-        game.load.audio('laserGunSound', '../RES/STATE2/audio/laser.mp3');
         game.load.audio('blinkSound', '../RES/STATE2/audio/blinkSound.mp3');
 
         //load enemies
@@ -58,9 +57,12 @@ var playState = {
         game.load.spritesheet('spikes', '../RES/STATE2/sprites/icons/spikes.png', 64, 30, 4);
         game.load.spritesheet('spikes2', '../RES/STATE2/sprites/icons/spikes2.png', 64, 30, 4);
 
+        //load drop Box
         game.load.spritesheet('dropBox', '../RES/STATE2/sprites/icons/bulletBox.png', 32, 32);
     },
-
+    /**
+     * Creates the Game
+     **/
     create: function () {
 
 
@@ -205,7 +207,9 @@ var playState = {
 
 
     },
-
+    /**
+     * Updates the Game
+     * */
     update: function () {
         game.physics.arcade.collide(playerChar, platforms);
 

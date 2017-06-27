@@ -1,7 +1,11 @@
 /**
  * Created by sphra on 12.06.2017.
+ * This is the Start State, it creates new content for the game canvas
  */
 var startState = {
+    /**
+     * Loads files that are needed to play the Game
+     **/
     preload: function () {
         game.load.image("background", "../RES/STATE1/bg/background.png");
         game.load.spritesheet("startGameButtonSprite", "../RES/STATE1/icons/startGameButton.png", 250, 70);
@@ -11,6 +15,9 @@ var startState = {
 
 
     },
+    /**
+     * Creates the Game
+     **/
     create: function () {
 
         style = { font: "bold "+Math.floor(40 * scalingFactor)+"px Amatic Sc", fill: "#ffffff", align: "center"};
@@ -38,6 +45,9 @@ var startState = {
 
 
     },
+    /**
+     * Updates the Game
+     * */
     update: function () {
     }
 }

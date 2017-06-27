@@ -2,6 +2,9 @@
  * Created by sphra on 12.06.2017.
  */
 var gameOverState = {
+    /**
+     * Loads files that are needed to play the Game
+     **/
     preload: function () {
         game.load.image("background", "../RES/STATE3/bg/background.png");
         game.load.spritesheet("startGameButtonSprite", "../RES/STATE3/icons/restartButton.png", 250, 70);
@@ -19,6 +22,9 @@ var gameOverState = {
 
 
     },
+    /**
+     * Creates the Game
+     **/
     create: function () {
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -52,6 +58,9 @@ var gameOverState = {
         deagle.animations.add('shoot', [0, 1, 2], 8, true);
         deagle.animations.play('shoot');
     },
+    /**
+     * Updates the Game
+     * */
     update: function () {
         wall1.tilePosition.x -= 0.25 * velocityVector;
         wall2.tilePosition.x -= 0.5 * velocityVector;
