@@ -135,7 +135,7 @@ var playState = {
         playerChar.addChild(guns);
 
         playerChar.animations.add('jump', [3], 10, true);
-        playerChar.animations.add('right', [5, 6], 7, true);
+        playerChar.animations.add('right', [1, 2, 3, 4], 7, true);
         playerChar.animations.add('hit', [6, 9], 7, true);
 
         blinkSound = game.add.audio('blinkSound');

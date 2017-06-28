@@ -135,13 +135,15 @@ function spawnGroundling() {
         //checks which groundling grapic to use
         if (textureRandomizer < 3) {
             var groundling = groundlings.create(game.world.width, groundling_height, 'spikes');
+            groundling.scale.setTo(1.6, 1.6);
         } else {
             var groundling = groundlings.create(game.world.width, groundling_height, 'spikes2');
+            groundling.scale.setTo(1.8, 1.8);
         }
 
         groundling.anchor.setTo(0.5, 0.5);
         groundling.rotation = 0;
-        groundling.scale.setTo(1.6, 1.6);
+
         groundling.animations.add('move', [0, 1, 2, 3], 8, true);
         groundling.play('move');
         groundling.body.moves = false;
