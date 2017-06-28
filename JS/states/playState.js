@@ -54,6 +54,7 @@ var playState = {
 
         //load enemies
         game.load.spritesheet('enemy1', '../RES/STATE2/sprites/icons/enemy1.png', 64, 30, 4);
+        game.load.spritesheet('enemy2', '../RES/STATE2/sprites/icons/enemy2.png', 64, 30, 4);
         game.load.spritesheet('spikes', '../RES/STATE2/sprites/icons/spikes.png', 64, 30, 4);
         game.load.spritesheet('spikes2', '../RES/STATE2/sprites/icons/spikes2.png', 64, 30, 4);
 

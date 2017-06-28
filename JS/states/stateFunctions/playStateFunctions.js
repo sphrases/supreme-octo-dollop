@@ -99,7 +99,17 @@ function spawnEnemy() {
 
         enemy_height = Math.random() * 400 + 200;
 
-        var enemy = enemies.create(game.world.width, enemy_height, 'enemy1');
+
+        var textureRandomizer = Math.random() * 5 + 1;
+        //checks which groundling grapic to use
+        if (textureRandomizer < 3) {
+            var enemy = enemies.create(game.world.width, enemy_height, 'enemy2');
+        } else {
+            var enemy = enemies.create(game.world.width, enemy_height, 'enemy1');
+        }
+
+
+
         enemy.anchor.setTo(0.5, 0.5);
         enemy.rotation = 0;
         enemy.scale.setTo(1.6, 1.6);
@@ -188,10 +198,8 @@ function fireWeapon(currentWeapon, currentWeaponSprite) {
 }
 
 function readInput() {
-
     if (key.isDown(Phaser.Keyboard.SPACEBAR)) {
         fireWeapon(weapons[currentWeaponID], weaponSpriteGroup[currentWeaponID]);
-
     }
     game.input.keyboard.onDownCallback = function () {
         var tmp = game.input.keyboard.event.keyCode - 48;
@@ -234,9 +242,9 @@ function toggleMusic() {
 }
 
 function timerHandler() {
+    //changes the global velocity and spawn rates on every execution
     velocityVector += 0.3;
     //console.log(velocityVector);
-
 }
 
 function changeLife(direction) {
@@ -257,11 +265,13 @@ function changeLife(direction) {
 
 }
 
+//takes live from player on execution, kills him if lives are below threshold
 function hitPlayer() {
 
     liveChanged = true;
 
     if (liveChanged && !liveWasChanged) {
+        //hit but not dead yet
         changeLife(false);
         playerBlink();
     }
