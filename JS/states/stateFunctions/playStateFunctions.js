@@ -63,7 +63,8 @@ function collisionHandler(bullet, enemy) {
 
 //moves world of the game
 function moveWorld() {
-    wall1.tilePosition.x -= 0.25 * velocityVector;
+    wall0.tilePosition.x -= 0.04 * velocityVector;
+    wall1.tilePosition.x -= 0.15 * velocityVector;
     wall2.tilePosition.x -= 0.5 * velocityVector;
     wall3.tilePosition.x -= 2 * velocityVector;
     wall4.tilePosition.x -= 2 * velocityVector;

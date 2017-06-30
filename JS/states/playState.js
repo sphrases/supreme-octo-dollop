@@ -88,8 +88,8 @@ var playState = {
 
         //Initializing Background!-------------------------------------
         wall0 = game.add.tileSprite(0, 0, game.width, game.height, "bgLvl0");
-        wall1 = game.add.tileSprite(0, 0, game.width, game.height, "bgLvl1");
-        wall2 = game.add.tileSprite(0, 0, game.width, game.height, "bgLvl2");
+        wall1 = game.add.tileSprite(0, 20, game.width, game.height, "bgLvl1");
+        wall2 = game.add.tileSprite(0, -15, game.width, game.height, "bgLvl2");
         wall3 = game.add.tileSprite(0, 0, game.width, game.height, "bgLvl3");
         wall4 = game.add.tileSprite(0, 0, game.width, game.height, "bgLvl4");
 
@@ -134,7 +134,7 @@ var playState = {
         guns.frame = 0;
         playerChar.addChild(guns);
 
-        playerChar.animations.add('jump', [3], 10, true);
+        playerChar.animations.add('jump', [7], 10, true);
         playerChar.animations.add('right', [1, 2, 3, 4], 7, true);
         playerChar.animations.add('hit', [6, 9], 7, true);
 
@@ -153,7 +153,7 @@ var playState = {
         createWeapon(weapon2, 30, 'bullet','ak', 500, 90, 2, playMachineGunSound);
         createWeapon(weapon3, 3, 'beam', 'deagle', 1000, 300, 0, playLaserSound);
         createWeapon(weapon4, 40, 'beam', 'deagle', 1000, 30, 0, playLaserSound);
-        createWeapon(weapon5, 40, 'dude', 'deagle', 1000, 100, 0, enemyHit);
+        createWeapon(weapon5, 40, 'heart', 'deagle', 1000, 100, 0, enemyHit);
 
 
         firstWeapon = 0;
